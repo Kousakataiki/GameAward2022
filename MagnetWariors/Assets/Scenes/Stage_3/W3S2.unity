@@ -980,7 +980,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5955844840416208063, guid: 22031b3142c64e246afbd9e3caa91cdf, type: 3}
+  - {fileID: 2100000, guid: db76e27d9779d914cbb96e04277a4eb0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -18730,7 +18730,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5955844840416208063, guid: 22031b3142c64e246afbd9e3caa91cdf, type: 3}
+  - {fileID: 2100000, guid: db76e27d9779d914cbb96e04277a4eb0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -45281,6 +45281,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1930530859638597013, guid: d3535970c9d5e154198cea747b50e530, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: 025e5927877e64a49807957ae081bfa1, type: 2}
     - target: {fileID: 1930530860089991401, guid: d3535970c9d5e154198cea747b50e530, type: 3}
       propertyPath: m_Color.b
       value: 0.5754717
