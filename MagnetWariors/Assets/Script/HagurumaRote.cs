@@ -5,7 +5,7 @@ using UnityEngine;
 public class HagurumaRote : MonoBehaviour
 {
 
-    [SerializeField]private int Speed = 2;
+    [SerializeField]private float Speed = 2;
 
     // Start is called before the first frame update
     void Start()
