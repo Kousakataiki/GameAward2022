@@ -31,12 +31,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.position.y <= -5.0f &&
-            GameObject.Find("black(Clone))") == null)
-            {
-            Instantiate(res, transform.position,
-                Quaternion.identity);
-        }
+        //if(this.transform.position.y <= -5.0f &&
+        //    GameObject.Find("black(Clone))") == null)
+        //    {
+
+        //    Instantiate(res, transform.position,
+        //        Quaternion.identity);
+        //}
     }
 
     private void OnDestroy()
