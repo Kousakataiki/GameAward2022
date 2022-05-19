@@ -15,7 +15,9 @@ public class PlayerMove : MonoBehaviour
 
     private bool bJump = true;
 
-    private Vector3 DebugRestartPos;
+    public  Vector3 DebugRestartPos;
+    public  Vector3 RestartPos;
+    public bool bDeath = false;
 
     private bool bMoveBGM = false;
     private bool bMove = true;
@@ -26,6 +28,8 @@ public class PlayerMove : MonoBehaviour
     private bool bLeft = false;
 
     private Animator anim;
+    private GameObject goImage;
+    private FadeIn FI;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,7 @@ public class PlayerMove : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         DebugRestartPos = transform.position;
+        RestartPos = transform.position;
 
         anim = GetComponent<Animator>();
 
@@ -98,6 +103,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
         
+        // プレイヤー死亡フラグが有効
+        if(bDeath)
+        {
+            // リスタート処理実行
+            ReStart();
+        }
 
         if(Controller.GetKeyTrigger(Controller.ControllerButton.A))
         {
@@ -227,5 +238,17 @@ public class PlayerMove : MonoBehaviour
     public void JumpAction()
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+    }
+
+    private void ReStart()
+    {
+        goImage = GameObject.Find("FadeIn");
+        FI = goImage.GetComponent<FadeIn>();
+
+        // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
+        FI.StartFadeIn();
+        // リスタート座標にプレイヤーを移動させる
+        transform.position = RestartPos;
+        bDeath = false;   // 死亡フラグ無効
     }
 }
