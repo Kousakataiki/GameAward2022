@@ -28,8 +28,10 @@ public class PlayerMove : MonoBehaviour
     private bool bLeft = false;
 
     private Animator anim;
-    private GameObject goImage;
+    private GameObject goFadeIn;
+    //private GameObject goFadeOut;
     private FadeIn FI;
+    //private FadeOut FO;
 
     // Start is called before the first frame update
     void Start()
@@ -106,8 +108,8 @@ public class PlayerMove : MonoBehaviour
         // プレイヤー死亡フラグが有効
         if(bDeath)
         {
-            // リスタート処理実行
-            ReStart();
+            // フェードイン(リスタート処理)開始
+            StartFade();
         }
 
         if(Controller.GetKeyTrigger(Controller.ControllerButton.A))
@@ -240,15 +242,31 @@ public class PlayerMove : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
     }
 
-    private void ReStart()
+    private void StartFade()
     {
-        goImage = GameObject.Find("FadeIn");
-        FI = goImage.GetComponent<FadeIn>();
+        // フェードインのコンポーネント取得
+        goFadeIn = GameObject.Find("FadeIn");
+        FI = goFadeIn.GetComponent<FadeIn>();
+
+        // フェードアウトのコンポーネント取得
+        //goFadeOut = GameObject.Find("FadeOut");
+        //FO = goFadeIn.GetComponent<FadeOut>();
 
         // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
         FI.StartFadeIn();
+
+        //if(FO.bEndFade)
+        //{
+        //    // リスタート座標にプレイヤーを移動させる
+        //    transform.position = RestartPos;
+        //    bDeath = false;   // 死亡フラグ無効
+        //}
+        bDeath = false;   // 死亡フラグ無効
+    }
+
+    public void ReStart()
+    {
         // リスタート座標にプレイヤーを移動させる
         transform.position = RestartPos;
-        bDeath = false;   // 死亡フラグ無効
     }
 }

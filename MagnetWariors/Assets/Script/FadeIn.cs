@@ -8,11 +8,11 @@ public class FadeIn : MonoBehaviour
     private Animator anim;
     private GameObject goImage;
     private FadeOut FO;
-    public  bool bStartFadeOut = false;
-
+ 
     // Start is called before the first frame update
     void Start()
     {
+        // アニメーションのコンポーネント取得
         anim = gameObject.GetComponent<Animator>();
     }
 
@@ -22,22 +22,19 @@ public class FadeIn : MonoBehaviour
       
     }
 
+    // フェードイン終了
     public void EndFadeInAnim()
     {
-        // フェード後に削除
-        //Destroy(this.gameObject);
-
-
         // フェードアニメーション終了
         anim.SetBool("bStart", false);
-        // フェードアウト開始
+        // ーーーーー フェードアウト開始 ーーーーー
+        // フェードアウトのコンポーネント取得
         goImage = GameObject.Find("FadeOut");
         FO = goImage.GetComponent<FadeOut>();
         FO.StartFadeOut();
 
         // フェード用Image無効化
         GetComponent<Image>().enabled = false;
-        //bStartFadeOut = true
     }
 
     // フェードイン開始
