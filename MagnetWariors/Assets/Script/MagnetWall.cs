@@ -20,7 +20,7 @@ public class MagnetWall : MagnetType
     void Start()
     {
         ParentCol = transform.parent.gameObject.GetComponent<BoxCollider>();
-        Pos = transform.position;
+        Pos = transform.parent.gameObject.transform.position;
         Top = Pos.y + (ParentCol.bounds.size.y / 2);
         Bottom = Pos.y - (ParentCol.bounds.size.y / 2);
         Right = Pos.x + (ParentCol.bounds.size.x / 2);
