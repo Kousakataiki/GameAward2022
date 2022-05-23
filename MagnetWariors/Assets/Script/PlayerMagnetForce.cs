@@ -8,14 +8,18 @@ public class PlayerMagnetForce : MagnetType
     private Material mat;
 
     private bool bMagnet;
-    
+
+    private bool bVisible = false;
+
+    private Vector3 MagnetScale;
+
     // Start is called before the first frame update
     void Start()
     {
         MagnetForce = VariableManager.playerMagnetStrength_s;
         transform.localScale = 
             new Vector3(VariableManager.playerMagnetRange_s, VariableManager.playerMagnetRange_s, VariableManager.playerMagnetRange_s);
-
+        MagnetScale = transform.localScale;
         pole = transform.parent.gameObject.GetComponent<PlayerMagnet>().GetMagnetType();
         mat = GetComponent<Renderer>().material;
     }
@@ -41,8 +45,19 @@ public class PlayerMagnetForce : MagnetType
                 bMagnet = false;
             }
         }
+    }
 
-        
+    private void FixedUpdate()
+    {
+        if (bVisible)
+        {
+            transform.localScale *= 1.2f;
+            if (transform.localScale.x >= MagnetScale.x)
+            {
+                bVisible = false;
+                transform.localScale = MagnetScale;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -97,5 +112,11 @@ public class PlayerMagnetForce : MagnetType
     public void UnValidMagnet()
     {
         bMagnet = false;
+    }
+
+    public void MagnetSpawn()
+    {
+        bVisible = true;
+        transform.localScale = new Vector3(1, 1, 1);
     }
 }

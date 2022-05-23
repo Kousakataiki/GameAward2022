@@ -27,6 +27,13 @@ public class PlayerMove : MonoBehaviour
     private bool bRight = false;
     private bool bLeft = false;
 
+    private bool bRightTurn = false;
+    private bool bLeftTurn = false;
+
+    private Vector3 vDir = Vector3.zero;
+    private Quaternion Rot;
+    private float fSmooth = 4f;
+
     private Animator anim;
     private GameObject goFadeIn;
     //private GameObject goFadeOut;
@@ -79,8 +86,13 @@ public class PlayerMove : MonoBehaviour
                 if(!bRight)
                 {
                     rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    transform.rotation = Quaternion.Euler(0, 90, 0);
-                    MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    if (!bRightTurn)
+                    {
+                        bRightTurn = true;
+                        bLeftTurn = false;
+                    }
+                    //transform.rotation = Quaternion.Euler(0, 90, 0);
+                    //MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
                 }
             }
             else if (Lstick.x <= -0.1f)
@@ -88,8 +100,13 @@ public class PlayerMove : MonoBehaviour
                 if (!bLeft)
                 {
                     rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    transform.rotation = Quaternion.Euler(0, -90, 0);
-                    MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    if(!bLeftTurn)
+                    {
+                        bLeftTurn = true;
+                        bRightTurn = false;
+                    }
+                    //transform.rotation = Quaternion.Euler(0, -90, 0);
+                    //MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
                 }
             }
             else
@@ -143,6 +160,22 @@ public class PlayerMove : MonoBehaviour
                 AudioManager.instance.BGMStop("PlayerWalk");
                 bMoveBGM = false;
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if(bRightTurn)
+        {
+            vDir.x = 1.0f;
+            Rot = Quaternion.LookRotation(vDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
+        }
+        if (bLeftTurn)
+        {
+            vDir.x = -1.0f;
+            Rot = Quaternion.LookRotation(vDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
         }
     }
 

@@ -16,7 +16,7 @@ public class TitleScene : MonoBehaviour
     {
         if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
         {
-            SceneManager.LoadScene("W4S1");
+            SceneManager.LoadScene("W2S1_a");
         }
     }
 }

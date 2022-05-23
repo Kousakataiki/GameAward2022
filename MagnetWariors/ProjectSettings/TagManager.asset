@@ -11,9 +11,6 @@ TagManager:
   - Box
   - ReverseWall
   - Area
-  - StartPos
-  - jumpblock
-  - ReStart
   layers:
   - Default
   - TransparentFX
