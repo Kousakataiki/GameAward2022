@@ -50,11 +50,18 @@ public class serectMap : MonoBehaviour
         {
             mapTexMat[i] = mapTex[i].GetComponent<Image>().material;
         }
+
+        //マップの強調表示
+        selectMap((int)serect);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //smoke演出されていれば
+        if (SmokeUIManager.getSmokeEffectNow())
+            return;
+
         Lstick = Controller.StickValue(Controller.ControllerStick.LStick);
        
         //マップの強調表示

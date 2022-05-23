@@ -1344,7 +1344,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169ce17ffa063a847b26854829c92f22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SumokeEffects: []
+  SumokeEffects:
+  - {fileID: 940076914}
+  - {fileID: 1765281734}
+  - {fileID: 1801268968}
   SumokeTimeEffect: {fileID: 0}
   isSmoke: 0
   LiberationMapNum: 0
