@@ -15,7 +15,9 @@ public class PlayerMove : MonoBehaviour
 
     private bool bJump = true;
 
-    private Vector3 DebugRestartPos;
+    public  Vector3 DebugRestartPos;
+    public  Vector3 RestartPos;
+    public bool bDeath = false;
 
     private bool bMoveBGM = false;
     private bool bMove = true;
@@ -25,7 +27,18 @@ public class PlayerMove : MonoBehaviour
     private bool bRight = false;
     private bool bLeft = false;
 
+    private bool bRightTurn = false;
+    private bool bLeftTurn = false;
+
+    private Vector3 vDir = Vector3.zero;
+    private Quaternion Rot;
+    private float fSmooth = 4f;
+
     private Animator anim;
+    private GameObject goFadeIn;
+    //private GameObject goFadeOut;
+    private FadeIn FI;
+    //private FadeOut FO;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +48,7 @@ public class PlayerMove : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
         DebugRestartPos = transform.position;
+        RestartPos = transform.position;
 
         anim = GetComponent<Animator>();
 
@@ -72,8 +86,13 @@ public class PlayerMove : MonoBehaviour
                 if(!bRight)
                 {
                     rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    transform.rotation = Quaternion.Euler(0, 90, 0);
-                    MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    if (!bRightTurn)
+                    {
+                        bRightTurn = true;
+                        bLeftTurn = false;
+                    }
+                    //transform.rotation = Quaternion.Euler(0, 90, 0);
+                    //MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
                 }
             }
             else if (Lstick.x <= -0.1f)
@@ -81,8 +100,13 @@ public class PlayerMove : MonoBehaviour
                 if (!bLeft)
                 {
                     rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    transform.rotation = Quaternion.Euler(0, -90, 0);
-                    MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    if(!bLeftTurn)
+                    {
+                        bLeftTurn = true;
+                        bRightTurn = false;
+                    }
+                    //transform.rotation = Quaternion.Euler(0, -90, 0);
+                    //MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
                 }
             }
             else
@@ -98,6 +122,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
         
+        // プレイヤー死亡フラグが有効
+        if(bDeath)
+        {
+            // フェードイン(リスタート処理)開始
+            StartFade();
+        }
 
         if(Controller.GetKeyTrigger(Controller.ControllerButton.A))
         {
@@ -130,6 +160,22 @@ public class PlayerMove : MonoBehaviour
                 AudioManager.instance.BGMStop("PlayerWalk");
                 bMoveBGM = false;
             }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if(bRightTurn)
+        {
+            vDir.x = 1.0f;
+            Rot = Quaternion.LookRotation(vDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
+        }
+        if (bLeftTurn)
+        {
+            vDir.x = -1.0f;
+            Rot = Quaternion.LookRotation(vDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
         }
     }
 
@@ -227,5 +273,33 @@ public class PlayerMove : MonoBehaviour
     public void JumpAction()
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+    }
+
+    private void StartFade()
+    {
+        // フェードインのコンポーネント取得
+        goFadeIn = GameObject.Find("FadeIn");
+        FI = goFadeIn.GetComponent<FadeIn>();
+
+        // フェードアウトのコンポーネント取得
+        //goFadeOut = GameObject.Find("FadeOut");
+        //FO = goFadeIn.GetComponent<FadeOut>();
+
+        // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
+        FI.StartFadeIn();
+
+        //if(FO.bEndFade)
+        //{
+        //    // リスタート座標にプレイヤーを移動させる
+        //    transform.position = RestartPos;
+        //    bDeath = false;   // 死亡フラグ無効
+        //}
+        bDeath = false;   // 死亡フラグ無効
+    }
+
+    public void ReStart()
+    {
+        // リスタート座標にプレイヤーを移動させる
+        transform.position = RestartPos;
     }
 }
