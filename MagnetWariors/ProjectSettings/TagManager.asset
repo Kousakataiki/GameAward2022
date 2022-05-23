@@ -11,6 +11,7 @@ TagManager:
   - Box
   - ReverseWall
   - Area
+  - StartPos
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - PlayerField
   - 
   - 
   - 
