@@ -12,6 +12,8 @@ TagManager:
   - ReverseWall
   - Area
   - StartPos
+  - jumpblock
+  - ReStart
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - Water
   - UI
-  - PlayerField
+  - 
   - 
   - 
   - 
