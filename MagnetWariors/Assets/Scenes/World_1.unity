@@ -1091,7 +1091,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 474466754408190269, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: stagenum
-      value: 3
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7377055078726228720, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: m_Name
@@ -6266,7 +6266,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 474466754408190269, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: stagenum
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7377055078726228720, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: m_Name
@@ -9065,7 +9065,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 474466754408190269, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: stagenum
-      value: 1
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7377055078726228720, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: m_Name
@@ -11864,6 +11864,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474466754408190269, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
+      propertyPath: stagenum
+      value: 27
+      objectReference: {fileID: 0}
     - target: {fileID: 7377055078726228720, guid: 686ee97cea566434e8d894982ef7fd97, type: 3}
       propertyPath: m_Name
       value: StageSerect_Door
@@ -13089,6 +13093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   res: {fileID: 7533261350126559183, guid: 4a1cbdb92c6aabb4798a065fbd12b78b, type: 3}
+  die: -5
   panel: {fileID: 0}
   text: {fileID: 0}
 --- !u!95 &1872042902
