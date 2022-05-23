@@ -8,6 +8,8 @@ public class FadeOut : MonoBehaviour
     private Animator anim;
     private GameObject goPlayer;
     private PlayerMove PM;
+    private GameObject goRSO;
+    private ReStartObj RSO;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,13 @@ public class FadeOut : MonoBehaviour
         // PlayerMoveのコンポーネント取得
         goPlayer = GameObject.FindGameObjectWithTag("Player");
         PM = goPlayer.GetComponent<PlayerMove>();
+        // REStartObjのコンポーネント取得
+        goRSO = GameObject.Find("ReStartObj");
+        RSO = goRSO.GetComponent<ReStartObj>();
+
+        // リスタートオブジェクト有効化
+        RSO.ReStartObjOn();
+
         // フェード用Imageを有効化
         GetComponent<Image>().enabled = true;
         // フェードアニメーション開始

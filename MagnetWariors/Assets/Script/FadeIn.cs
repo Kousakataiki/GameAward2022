@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class FadeIn : MonoBehaviour
-{
-    private Animator anim;
+{private Animator anim;
+    
     private GameObject goImage;
     private FadeOut FO;
  
