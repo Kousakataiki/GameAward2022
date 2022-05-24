@@ -26,9 +26,7 @@ public class PlayerMagnet : MagnetType
     private float HealAmount;
 
     private bool bRemove = false;
-    private bool bRemoveProcess = false;
-
-    private PlayerMagnetForce force;
+    private bool bRemoveProcess = false; 
 
     private void Awake()
     {
@@ -44,8 +42,7 @@ public class PlayerMagnet : MagnetType
         RimitHeight = VariableManager.RimitHeight_s;
         SpendAmount = VariableManager.SpendMagnetAmount_s;
         HealAmount = VariableManager.HealMagnetAmount_s;
-        MagnetObj = transform.Find("Magnet").gameObject;
-        force = MagnetObj.GetComponent<PlayerMagnetForce>();
+        MagnetObj = transform.Find("Magnet").gameObject; 
         rb = GetComponent<Rigidbody>();
     }
 
@@ -72,12 +69,11 @@ public class PlayerMagnet : MagnetType
 
         if(Controller.GetKeyTrigger(Controller.ControllerButton.L))
         {
-            if (!bS)
+            if (!bS && Namount > 0)
             {
                 MagnetObj.SetActive(true);
                 bN = true;
                 pole = POLE.N;
-                force.MagnetSpawn();
                 AudioManager.instance.Play("PlayerMagnet");
             }
         }
@@ -107,12 +103,11 @@ public class PlayerMagnet : MagnetType
 
         if (Controller.GetKeyTrigger(Controller.ControllerButton.R))
         {
-            if (!bN)
+            if (!bN && Samount >0)
             {
                 MagnetObj.SetActive(true);
                 bS = true;
                 pole = POLE.S;
-                force.MagnetSpawn();
                 AudioManager.instance.Play("PlayerMagnet");
             }
         }

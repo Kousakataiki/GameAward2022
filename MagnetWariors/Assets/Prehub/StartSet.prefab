@@ -3849,7 +3849,6 @@ GameObject:
   - component: {fileID: 5806959048699884343}
   - component: {fileID: 731477447396034429}
   - component: {fileID: 4385247189595855596}
-  - component: {fileID: 6864354503736781725}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: PlayerMagnet
@@ -3946,18 +3945,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pole: 0
---- !u!114 &6864354503736781725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4149079053115750808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c46acfadbd846e14ea8e67c730f564d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4217741457746901812
 GameObject:
   m_ObjectHideFlags: 0
