@@ -2028,7 +2028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  speed: -45
+  speed: -17
 --- !u!1 &2362978749231744041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2594,7 +2594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 150
-  speed: 45
+  speed: 11
 --- !u!1 &3259052383166602404
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  speed: -45
+  speed: -12
 --- !u!1 &3910986042109276057
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,7 +3290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  speed: -90
+  speed: -14
 --- !u!1 &3961035316380986078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5664,7 +5664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 200
-  speed: 40
+  speed: 15
 --- !u!1 &7033629580554233793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5843,7 +5843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 200
-  speed: 40
+  speed: 17
 --- !u!1 &7303329307059883691
 GameObject:
   m_ObjectHideFlags: 0
@@ -6021,7 +6021,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 100
-  speed: -45
+  speed: -14
 --- !u!1 &7339915597507879992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7542,7 +7542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 150
-  speed: 45
+  speed: 26
 --- !u!1 &8907260593471883306
 GameObject:
   m_ObjectHideFlags: 0
