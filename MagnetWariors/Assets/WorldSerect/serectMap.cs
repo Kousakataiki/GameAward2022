@@ -40,9 +40,9 @@ public class serectMap : MonoBehaviour
     {
         serect = SerectMap.Wind;
 
-        FireClearFlag = false;
-        WaterClearFlag = false;
-        NuclearCllearFlag = false;
+        FireClearFlag = true;
+        WaterClearFlag = true;
+        NuclearCllearFlag = true;
 
         //Material�̎擾
         mapTexMat = new Material[mapTex.Length];
@@ -123,7 +123,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("");
+                    SceneManager.LoadScene("World_3");
                 }
 
                 WindSprite.SetActive(false);
