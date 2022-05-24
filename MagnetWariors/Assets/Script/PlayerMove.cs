@@ -177,6 +177,11 @@ public class PlayerMove : MonoBehaviour
             Rot = Quaternion.LookRotation(vDir);
             transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
         }
+        Debug.Log("Velo" + rb.velocity.magnitude);
+        if(rb.velocity.magnitude >= 20f)
+        {
+            rb.velocity /= (rb.velocity.magnitude / 20f);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -190,8 +195,11 @@ public class PlayerMove : MonoBehaviour
             {
                 bJump = true;
             }
-            AudioManager.instance.Play("PlayerLanding");
-            anim.SetTrigger("Landing");
+            if(rb.velocity.magnitude >= 5.0f)
+            {
+                AudioManager.instance.Play("PlayerLanding");
+                anim.SetTrigger("Landing");
+            }
         }
 
         if (collision.gameObject.tag == "Box")
