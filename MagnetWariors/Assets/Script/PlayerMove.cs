@@ -248,19 +248,9 @@ public class PlayerMove : MonoBehaviour
         goFadeIn = GameObject.Find("FadeIn");
         FI = goFadeIn.GetComponent<FadeIn>();
 
-        // フェードアウトのコンポーネント取得
-        //goFadeOut = GameObject.Find("FadeOut");
-        //FO = goFadeIn.GetComponent<FadeOut>();
-
         // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
         FI.StartFadeIn();
-
-        //if(FO.bEndFade)
-        //{
-        //    // リスタート座標にプレイヤーを移動させる
-        //    transform.position = RestartPos;
-        //    bDeath = false;   // 死亡フラグ無効
-        //}
+        
         bDeath = false;   // 死亡フラグ無効
     }
 
