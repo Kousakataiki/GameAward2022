@@ -123,7 +123,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("");
+                    SceneManager.LoadScene("World_3");
                 }
 
                 WindSprite.SetActive(false);
@@ -147,7 +147,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("");
+                    SceneManager.LoadScene("World_4");
                 }
 
                 WindSprite.SetActive(false);
