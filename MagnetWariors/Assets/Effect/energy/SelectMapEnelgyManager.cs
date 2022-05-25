@@ -43,8 +43,8 @@ public class SelectMapEnelgyManager : MonoBehaviour
     void initEvent()
     {
         //‰ð•ú‚µ‚È‚­‚Ä‚¢‚¢‚Æ‚«‚Í‚µ‚È‚¢
-        if( openMapNum == 0||
-            worldNumber  != 3)
+        if( openMapNum == 0
+          )//  worldNumber  != 3)
         {
             isOpenEvent = false;
             return;
