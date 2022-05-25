@@ -39,7 +39,7 @@ public class VariableManager : MonoBehaviour
         MagnetWallAttractStrength_s = MagnetWallAttractStrength;
         MagnetWallFlickStrength_s = MagnetWallFlickStrength;
 
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = 60;
 
         DontDestroyOnLoad(gameObject);
     }
