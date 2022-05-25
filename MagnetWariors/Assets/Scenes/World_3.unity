@@ -257,7 +257,7 @@ MonoBehaviour:
   moveVec: {x: 0, y: 0, z: 0}
   isOpenEvent: 0
   worldNumber: 3
-  openMapNum: 2
+  openMapNum: 6
   TagNum: 0
   moveSpeed: 5
 --- !u!1001 &59306459
