@@ -27,6 +27,8 @@ public class SetReStartPos : MonoBehaviour
         {
             // ーーーーー リスタート座標設定処理 ーーーーー
             coll.attachedRigidbody.GetComponent<PlayerMove>().RestartPos = this.transform.position;
+          
+            
         }
     }
 

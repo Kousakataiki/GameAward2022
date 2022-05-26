@@ -15,28 +15,20 @@ public class ReStartObj : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 確認
-        //if (Controller.GetKeyTrigger(Controller.ControllerButton.L))
-        //{
-        //    mesh.enabled = false;
-        //}
-        //if(Controller.GetKeyTrigger(Controller.ControllerButton.R))
-        //{
-        //    mesh.enabled = true;
-        //}
+        
     }
 
     // リスタートオブジェクトの有効化
     public void ReStartObjOn()
     {
-        // フェードアウトがはじまったら
+        // オブジェクト表示させる
         mesh.enabled = true;
     }
 
     // リスタートオブジェクトの無効化
     public void ReStartObjOff()
     {
-        // フェードアウトが終わったら
+        // オブジェクトを非表示にする
         mesh.enabled = false;
     }
 }
