@@ -16,13 +16,13 @@ public class EnemyDeath : MagnetType
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider coll)
     {
-        if(collision.gameObject.tag == "Player")
+        if(coll.gameObject.tag == "Player")
         {
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-            bool bPlayerMagnet = collision.gameObject.GetComponent<PlayerMagnet>().MagnetUse();
-            POLE PlayerPole = collision.gameObject.GetComponent<PlayerMagnet>().GetMagnetType();
+            Rigidbody rb = coll.gameObject.GetComponent<Rigidbody>();
+            bool bPlayerMagnet = coll.gameObject.GetComponent<PlayerMagnet>().MagnetUse();
+            POLE PlayerPole = coll.gameObject.GetComponent<PlayerMagnet>().GetMagnetType();
             Debug.Log("Use :" + bPlayerMagnet);
             if(bPlayerMagnet && pole != PlayerPole)
             {
@@ -30,13 +30,13 @@ public class EnemyDeath : MagnetType
             }
             else
             {
-                Destroy(collision.gameObject);
+                Destroy(coll.gameObject);
             }
         }
 
-        if(collision.gameObject.tag == "UsedGimmick")
+        if(coll.gameObject.tag == "UsedGimmick")
         {
-            Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
+            Rigidbody rb = coll.gameObject.GetComponent<Rigidbody>();
             if(rb.velocity.magnitude >= 10.0f)
             {
                 Destroy(this.gameObject);

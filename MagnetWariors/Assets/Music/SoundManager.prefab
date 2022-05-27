@@ -100,4 +100,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 2e31bb33d16c48145b01403e0c56ae68, type: 3}
     volume: 0.1
     audioSource: {fileID: 0}
+  - name: SE_World1_BackGround_vapor
+    clip: {fileID: 8300000, guid: 2e31bb33d16c48145b01403e0c56ae68, type: 3}
+    volume: 0.1
+    audioSource: {fileID: 0}
   FadeTime: 0

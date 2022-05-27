@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class SetReStartPos : MonoBehaviour
 {
-    //GameObject goPlayer;    // Playerオブジェクト
-    //PlayerMove pm;          // PlayerMoveのスクリプト
+    private GameObject goRSO;
+    private ReStartObj RSO;
 
     // Start is called before the first frame update
     void Start()
     {
-        // PlayerMove.csの変数を使用するためにpmに情報を格納しておく
-        //goPlayer = GameObject.Find("Player");
-        //pm = goPlayer.GetComponent<PlayerMove>();
+        
     }
 
     // Update is called once per frame
@@ -29,6 +27,21 @@ public class SetReStartPos : MonoBehaviour
         {
             // ーーーーー リスタート座標設定処理 ーーーーー
             coll.attachedRigidbody.GetComponent<PlayerMove>().RestartPos = this.transform.position;
+          
+            
         }
+    }
+
+    private void OnTriggerExit(Collider coll)
+    {
+        goRSO = GameObject.Find("ReStartObj");
+        RSO = goRSO.GetComponent<ReStartObj>();
+
+        if (coll.gameObject.tag == "Player")
+        {
+            // リスタートオブジェクトを無効化
+            RSO.ReStartObjOff();
+        }
+
     }
 }
