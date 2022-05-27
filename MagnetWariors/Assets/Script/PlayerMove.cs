@@ -80,44 +80,7 @@ public class PlayerMove : MonoBehaviour
                 Lstick = Controller.StickValue(Controller.ControllerStick.LStick);
                 if (Lstick.x >= 0.1f)
                 {
-<<<<<<< HEAD
-<<<<<<< HEAD
                     if (!bRight)
-=======
-                    rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    if (!bRightTurn)
-                    {
-                        bRightTurn = true;
-                        bLeftTurn = false;
-                    }
-                    //transform.rotation = Quaternion.Euler(0, 90, 0);
-                    //MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
-                }
-            }
-            else if (Lstick.x <= -0.1f)
-            {
-                if (!bLeft)
-                {
-                    rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    if(!bLeftTurn)
-                    {
-                        bLeftTurn = true;
-                        bRightTurn = false;
-                    }
-                    //transform.rotation = Quaternion.Euler(0, -90, 0);
-                    //MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
-                }
-            }
-            else
-            {
-                if (bJump)
-                {
-                    rb.velocity = new Vector3(rb.velocity.x * 0.1f, rb.velocity.y, rb.velocity.z);
-                    if (rb.velocity.x >= 0.01f)
->>>>>>> origin/Yuuki
-=======
-                    if (!bRight)
->>>>>>> origin/Motoyama
                     {
                         rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
                         transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -214,26 +177,12 @@ public class PlayerMove : MonoBehaviour
             {
                 bJump = true;
             }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/Motoyama
             // フェード中でなければ効果音を再生
             if(!bFade)
             {
                 AudioManager.instance.Play("PlayerLanding");
             }
             anim.SetTrigger("Landing");
-<<<<<<< HEAD
-=======
-            if(rb.velocity.magnitude >= 5.0f)
-            {
-                AudioManager.instance.Play("PlayerLanding");
-                anim.SetTrigger("Landing");
-            }
->>>>>>> origin/Yuuki
-=======
->>>>>>> origin/Motoyama
         }
 
         if (collision.gameObject.tag == "Box")
@@ -324,31 +273,8 @@ public class PlayerMove : MonoBehaviour
         // フェードインのコンポーネント取得
         goFadeIn = GameObject.Find("FadeIn");
         FI = goFadeIn.GetComponent<FadeIn>();
-<<<<<<< HEAD
-<<<<<<< HEAD
         // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
         FI.StartFadeIn();
-=======
-
-        // フェードアウトのコンポーネント取得
-        //goFadeOut = GameObject.Find("FadeOut");
-        //FO = goFadeIn.GetComponent<FadeOut>();
-
-        // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
-        FI.StartFadeIn();
-
-        //if(FO.bEndFade)
-        //{
-        //    // リスタート座標にプレイヤーを移動させる
-        //    transform.position = RestartPos;
-        //    bDeath = false;   // 死亡フラグ無効
-        //}
-        bDeath = false;   // 死亡フラグ無効
->>>>>>> origin/Yuuki
-=======
-        // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
-        FI.StartFadeIn();
->>>>>>> origin/Motoyama
     }
 
     public void ReStart()

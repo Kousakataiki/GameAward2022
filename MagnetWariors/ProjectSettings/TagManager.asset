@@ -3,21 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - UsedGimmick
-  - PlayerMagnet
-  - Field
-  - MagnetWall
-  - Box
-  - ReverseWall
-  - Area
-  - StartPos
-  - jumpblock
-<<<<<<< HEAD
-  - ReStart
-  - ReStartObj
-=======
->>>>>>> origin/manabe_daisuke_branch
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -29,7 +15,7 @@ TagManager:
   - 
   - 
   - 
-  - Magnet
+  - 
   - 
   - 
   - 
