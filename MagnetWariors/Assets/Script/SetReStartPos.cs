@@ -34,7 +34,7 @@ public class SetReStartPos : MonoBehaviour
 
     private void OnTriggerExit(Collider coll)
     {
-        goRSO = GameObject.Find("ReStartObj");
+        goRSO = GameObject.FindWithTag("ReStartObj");
         RSO = goRSO.GetComponent<ReStartObj>();
 
         if (coll.gameObject.tag == "Player")

@@ -13,6 +13,11 @@ TagManager:
   - Area
   - StartPos
   - jumpblock
+  - ReStart
+  - ReStartObj
+  - Enemy
+  - FloatEnemyVertical
+  - FloatEnemyHorizontal
   layers:
   - Default
   - TransparentFX
