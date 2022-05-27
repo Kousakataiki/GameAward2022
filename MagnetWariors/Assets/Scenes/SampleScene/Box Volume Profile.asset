@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899c54efeace73346a0a16faa3afe726, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   m_AdvancedMode: 0
   color:
     m_OverrideState: 0
@@ -142,12 +142,12 @@ MonoBehaviour:
     max: 9
   bladeCurvature:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
     min: 0
     max: 1
   bladeRotation:
     m_OverrideState: 0
-    m_Value: 114
+    m_Value: 180
     min: -180
     max: 180
 --- !u!114 &11400000
