@@ -30,7 +30,7 @@ public class serectMap : MonoBehaviour
 
     private bool FireClearFlag;
     private bool WaterClearFlag;
-    private bool NuclearCllearFlag;
+    private bool NuclearClearFlag;
 
     private Vector2 Lstick;
 
@@ -40,9 +40,17 @@ public class serectMap : MonoBehaviour
     {
         serect = SerectMap.Wind;
 
-        FireClearFlag = true;
-        WaterClearFlag = true;
-        NuclearCllearFlag = true;
+        FireClearFlag = false;
+        WaterClearFlag = false;
+        NuclearClearFlag = false;
+
+        int nClearStageNum = SaveData.GetClearState();
+        if(nClearStageNum >= 8)
+            FireClearFlag = true;
+        if(nClearStageNum >= 16)
+            WaterClearFlag = true;
+        if(nClearStageNum >= 24)
+            NuclearClearFlag = true;
 
         //Material�̎擾
         mapTexMat = new Material[mapTex.Length];
@@ -85,12 +93,12 @@ public class serectMap : MonoBehaviour
 
                 if (Lstick.y >= 0.1f && FireClearFlag == true)
                 {
-                    serect = SerectMap.Fire;
+                        serect = SerectMap.Fire;
                 }
 
-                if (Lstick.x >= 0.1f && NuclearCllearFlag == true)
+                if (Lstick.x >= 0.1f && NuclearClearFlag == true)
                 {
-                    serect = SerectMap.Nuclear;
+                        serect = SerectMap.Nuclear;
                 }
 
                 break;
@@ -114,7 +122,7 @@ public class serectMap : MonoBehaviour
 
                 if (Lstick.x >= 0.1f && WaterClearFlag == true)
                 {
-                    serect = SerectMap.Water;
+                        serect = SerectMap.Water;
                 }
 
                 break;
@@ -131,14 +139,14 @@ public class serectMap : MonoBehaviour
                 WaterSprite.SetActive(true);
                 NuclerSprite.SetActive(false);
 
-                if (Lstick.y <= -0.1f && NuclearCllearFlag == true)
+                if (Lstick.y <= -0.1f && NuclearClearFlag == true)
                 {
-                    serect = SerectMap.Nuclear;
+                        serect = SerectMap.Nuclear;
                 }
 
                 if (Lstick.x <= -0.1f && FireClearFlag == true)
                 {
-                    serect = SerectMap.Fire;
+                        serect = SerectMap.Fire;
                 }
 
                 break;
@@ -157,7 +165,8 @@ public class serectMap : MonoBehaviour
 
                 if (Lstick.y >= 0.1f)
                 {
-                    serect = SerectMap.Water;
+                    if(WaterClearFlag)
+                        serect = SerectMap.Water;
                 }
 
                 if (Lstick.x <= -0.1f)
