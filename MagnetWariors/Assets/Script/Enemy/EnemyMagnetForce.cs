@@ -37,7 +37,7 @@ public class EnemyMagnetForce : MagnetType
             Rigidbody rb = other.gameObject.transform.parent.GetComponent<Rigidbody>();
             Vector3 vec = other.gameObject.transform.position - transform.position;
             POLE playerPole = other.gameObject.GetComponent<PlayerMagnetForce>().GetMagnetType();
-            if(pole != playerPole)
+            if(pole == playerPole)
             {
                 rb.AddForce(vec * PullForce);
             }

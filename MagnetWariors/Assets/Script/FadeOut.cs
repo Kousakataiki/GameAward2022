@@ -16,12 +16,14 @@ public class FadeOut : MonoBehaviour
     {
         // アニメーションのコンポーネント取得
         anim = gameObject.GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        goPlayer = GameObject.FindGameObjectWithTag("Player");
+        PM = goPlayer.GetComponent<PlayerMove>();
     }
 
     public void EndFadeOutAnim()
@@ -30,15 +32,14 @@ public class FadeOut : MonoBehaviour
         anim.SetBool("bStart", false);
         // フェード用Image無効化
         GetComponent<Image>().enabled = false;
+        // フェード処理フラグ無効化
+        PM.bFade = false;
     }
 
     public void StartFadeOut()
     {
-        // PlayerMoveのコンポーネント取得
-        goPlayer = GameObject.FindGameObjectWithTag("Player");
-        PM = goPlayer.GetComponent<PlayerMove>();
-        // REStartObjのコンポーネント取得
-        goRSO = GameObject.Find("ReStartObj");
+        // ReStartObjのコンポーネント取得
+        goRSO = GameObject.FindWithTag("ReStartObj");
         RSO = goRSO.GetComponent<ReStartObj>();
 
         // リスタートオブジェクト有効化
@@ -48,7 +49,7 @@ public class FadeOut : MonoBehaviour
         GetComponent<Image>().enabled = true;
         // フェードアニメーション開始
         anim.SetBool("bStart", true);
-        // プレイヤーリスタート処理
-        PM.ReStart();
+        // プレイヤーストップフラグ無効化
+        PM.bStopPlayer = false;
     }
 }

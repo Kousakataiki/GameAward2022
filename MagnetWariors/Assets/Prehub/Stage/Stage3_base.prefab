@@ -1472,6 +1472,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveSpeed: 0.01
   StartAnimSec: 1
+  GoalAnimSec: 1
 --- !u!1 &1930530860004443242
 GameObject:
   m_ObjectHideFlags: 0

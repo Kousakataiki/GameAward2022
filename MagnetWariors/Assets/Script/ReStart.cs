@@ -22,7 +22,7 @@ public class ReStart : MonoBehaviour
         // 範囲内にタグ「Player」が存在する
         if (coll.gameObject.tag == "Player")
         {
-            // ーーーーー プレイヤーの死亡フラグを有効化し、フェードアウト行う ーーーーー
+            // ーーーーー プレイヤーの死亡フラグを有効化する ーーーーー
             coll.attachedRigidbody.GetComponent<PlayerMove>().bDeath = true;
         }
     }
