@@ -13,8 +13,11 @@ TagManager:
   - Area
   - StartPos
   - jumpblock
+<<<<<<< HEAD
   - ReStart
   - ReStartObj
+=======
+>>>>>>> origin/manabe_daisuke_branch
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - 
   - 
   - 
-  - magnet
+  - Magnet
   - 
   - 
   - 
