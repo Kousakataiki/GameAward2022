@@ -75,6 +75,9 @@ public class PushBotton_Blinking : MonoBehaviour
     {
         if (Controller.GetKeyPress(Controller.ControllerButton.B))
         {
+
+            AudioManager.instance.BGMStop("BGM_Title");
+
             //ÉVÅ[Éìì«Ç›çûÇ›
             fade.fadeOutStart(0, 0, 0, 0, "WorldSerect");
 

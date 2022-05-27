@@ -92,6 +92,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
+                    AudioManager.instance.BGMStop("BGM_WorldSerect");
                     fade.fadeOutStart(0, 0, 0, 0, "World_1");
                 }
 
@@ -116,6 +117,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
+                    AudioManager.instance.BGMStop("BGM_WorldSerect");
                     fade.fadeOutStart(0, 0, 0, 0, "World_2");
                 }
 
@@ -140,6 +142,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
+                    AudioManager.instance.BGMStop("BGM_WorldSerect");
                     fade.fadeOutStart(0, 0, 0, 0, "World_3");
                 }
 
@@ -164,6 +167,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
+                    AudioManager.instance.BGMStop("BGM_WorldSerect");
                     fade.fadeOutStart(0, 0, 0, 0, "World_4");
                 }
 

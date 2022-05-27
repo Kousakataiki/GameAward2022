@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BGM : MonoBehaviour
 {
+    [SerializeField] string bgmname = "BGM_Stage1";
+
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.instance.BGMStart("BGM_Stage1");
+        AudioManager.instance.BGMStart(bgmname);
     }
 
     // Update is called once per frame
@@ -15,4 +17,5 @@ public class BGM : MonoBehaviour
     {
         
     }
+
 }

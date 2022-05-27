@@ -73,131 +73,225 @@ public class StageSerect : MonoBehaviour
             switch (stagenum)
             {
                 case StageNum.Wind_1:
+                    AudioManager.instance.BGMStop("BGM_StageSerect");
                     fade.fadeOutStart(0, 0, 0, 0, "W1S1");
                     break;
                 case StageNum.Wind_2:
-                    if(ClearStageNum >= 1)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S2");
+                    if (ClearStageNum >= 1)
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S2");
+                    }
                     break;
                 case StageNum.Wind_3:
                     if (ClearStageNum >= 2)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S3");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S3");
+                    }
                     break;
                 case StageNum.Wind_4:
                     if (ClearStageNum >= 3)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S4");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S4");
+                    }
                     break;
                 case StageNum.Wind_5:
                     if (ClearStageNum >= 4)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S5");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S5");
+                    }
                     break;
                 case StageNum.Wind_6:
                     if (ClearStageNum >= 5)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S6");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S6");
+                    }
                     break;
                 case StageNum.Wind_7:
                     if (ClearStageNum >= 6)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S7");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S7");
+                    }
                     break;
                 case StageNum.Wind_8:
                     if (ClearStageNum >= 7)
-                    fade.fadeOutStart(0, 0, 0, 0, "W1S8");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W1S8");
+                    }
                     break;
                 case StageNum.Fire_1:
                     if (ClearStageNum >= 8)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S1");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S1");
+                    }
                     break;
                 case StageNum.Fire_2:
                     if (ClearStageNum >= 9)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S2");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S2");
+                    }
                     break;
                 case StageNum.Fire_3:
                     if (ClearStageNum >= 10)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S3");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S3");
+                    }
                     break;
                 case StageNum.Fire_4:
                     if (ClearStageNum >= 11)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S4");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S4");
+                    }
                     break;
                 case StageNum.Fire_5:
                     if (ClearStageNum >= 12)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S5");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S5");
+                    }
                     break;
                 case StageNum.Fire_6:
                     if (ClearStageNum >= 13)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S6");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S6");
+                    }
                     break;
                 case StageNum.Fire_7:
                     if (ClearStageNum >= 14)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S7");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S7");
+                    }
                     break;
                 case StageNum.Fire_8:
                     if (ClearStageNum >= 15)
-                    fade.fadeOutStart(0, 0, 0, 0, "W2S8");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W2S8");
+                    }
                     break;
                 case StageNum.Water_1:
                     if (ClearStageNum >= 16)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S1");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S1");
+                    }
                     break;
                 case StageNum.Water_2:
                     if (ClearStageNum >= 17)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S2");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S2");
+                    }
                     break;
                 case StageNum.Water_3:
                     if (ClearStageNum >= 18)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S3");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S3");
+                    }
                     break;
                 case StageNum.Water_4:
                     if (ClearStageNum >= 19)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S4");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S4");
+                    }
                     break;
                 case StageNum.Water_5:
                     if (ClearStageNum >= 20)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S5");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S5");
+                    }
                     break;
                 case StageNum.Water_6:
                     if (ClearStageNum >= 21)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S6");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S6");
+                    }
                     break;
                 case StageNum.Water_7:
                     if (ClearStageNum >= 22)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S7");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S7");
+                    }
                     break;
                 case StageNum.Water_8:
                     if (ClearStageNum >= 23)
-                    fade.fadeOutStart(0, 0, 0, 0, "W3S8");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W3S8");
+                    }
                     break;
                 case StageNum.Nuclear_1:
                     if (ClearStageNum >= 24)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S1");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S1");
+                    }
                     break;
                 case StageNum.Nuclear_2:
                     if (ClearStageNum >= 25)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S2");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S2");
+                    }
                     break;
                 case StageNum.Nuclear_3:
                     if (ClearStageNum >= 26)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S3");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S3");
+                    }
                     break;
                 case StageNum.Nuclear_4:
                     if (ClearStageNum >= 27)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S4");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S4");
+                    }
                     break;
                 case StageNum.Nuclear_5:
                     if (ClearStageNum >= 28)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S5");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S5");
+                    }
                     break;
                 case StageNum.Nuclear_6:
                     if (ClearStageNum >= 29)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S6");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S6");
+                    }
                     break;
                 case StageNum.Nuclear_7:
                     if (ClearStageNum >= 30)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S7");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S7");
+                    }
                     break;
                 case StageNum.Nuclear_8:
                     if (ClearStageNum >= 31)
-                    fade.fadeOutStart(0, 0, 0, 0, "W4S8");
+                    {
+                        AudioManager.instance.BGMStop("BGM_StageSerect");
+                        fade.fadeOutStart(0, 0, 0, 0, "W4S8");
+                    }
                     break;
             }
         }

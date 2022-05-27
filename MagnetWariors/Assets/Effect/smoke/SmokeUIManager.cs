@@ -68,10 +68,10 @@ public class SmokeUIManager : MonoBehaviour
 
         //VFXŽæ“¾
         SumokeVFX = SumokeTimeEffect.GetComponent<VisualEffect>();
-        
+
 
         //‘½•ª‚±‚±‚É‰¹‚ð’Ç‰Á
-
+        AudioManager.instance.Play("JINGLE_WorldClear");
 
     }
 

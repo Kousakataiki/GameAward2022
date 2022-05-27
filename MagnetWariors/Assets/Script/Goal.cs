@@ -94,6 +94,8 @@ public class Goal : MonoBehaviour
             StartRot = Player.transform.rotation;
             mainCamera.SetCameraMode(MainCamera.CAMERA_MODE.GoalAnim);
             anim.SetTrigger("Pull");
+
+            AudioManager.instance.Play("JINGLE_StageClear");
         }
     }
 

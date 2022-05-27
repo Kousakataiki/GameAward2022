@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 1340436369017745442}
   - component: {fileID: 1340436369017745443}
   - component: {fileID: 1340436369017745440}
-  - component: {fileID: 7762793211443779133}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MagnetForce (1)
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
@@ -114,18 +113,6 @@ MonoBehaviour:
   ChengeTime: 0
   setPos: 0
   setSize: 100
---- !u!114 &7762793211443779133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1340436369017745630}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f6e8d20beb9394b94917cf6df62188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4802491468983512128
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +175,7 @@ GameObject:
   - component: {fileID: 8426107479506965407}
   - component: {fileID: 3332533648877919266}
   - component: {fileID: 8849405201521212020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MagnetForce
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
