@@ -1,6 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1 &1700205472513144464
 GameObject:
@@ -1271,6 +1272,8 @@ MeshRenderer:
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
 >>>>>>> origin/Yuuki
+=======
+>>>>>>> origin/Motoyama
 --- !u!1 &1700205474365577495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,12 +1285,15 @@ GameObject:
   - component: {fileID: 1700205474365577501}
   - component: {fileID: 1700205474365577498}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   - component: {fileID: 1700205474365577499}
   - component: {fileID: 1700205474365577496}
   - component: {fileID: 1700205474365577497}
   - component: {fileID: 1700205474365577494}
 >>>>>>> origin/Yuuki
+=======
+>>>>>>> origin/Motoyama
   m_Layer: 0
   m_Name: Enemy_1
   m_TagString: Untagged
@@ -1307,6 +1313,7 @@ Transform:
   m_LocalScale: {x: 75, y: 75, z: 75}
   m_Children:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 1620273112406500136}
 =======
   - {fileID: 1700205472513144467}
@@ -1315,6 +1322,9 @@ Transform:
   - {fileID: 1700205473594309396}
   - {fileID: 4607958579151754774}
 >>>>>>> origin/Yuuki
+=======
+  - {fileID: 1620273112406500136}
+>>>>>>> origin/Motoyama
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -1335,6 +1345,9 @@ Rigidbody:
   m_Constraints: 88
   m_CollisionDetection: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Motoyama
 --- !u!1001 &2985418554910666365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1397,6 +1410,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4544707704778935637, guid: a595f5af970bcaa48a27c97e1580790f, type: 3}
   m_PrefabInstance: {fileID: 2985418554910666365}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 =======
 --- !u!136 &1700205474365577499
 CapsuleCollider:
@@ -1566,3 +1580,5 @@ MonoBehaviour:
   PullForce: 0
   PushForce: 0
 >>>>>>> origin/Yuuki
+=======
+>>>>>>> origin/Motoyama

@@ -30,13 +30,6 @@ public class PlayerMove : MonoBehaviour
     private bool bRight = false;
     private bool bLeft = false;
 
-    private bool bRightTurn = false;
-    private bool bLeftTurn = false;
-
-    private Vector3 vDir = Vector3.zero;
-    private Quaternion Rot;
-    private float fSmooth = 4f;
-
     private Animator anim;
     private GameObject goFadeIn;
     private FadeIn FI;
@@ -88,6 +81,7 @@ public class PlayerMove : MonoBehaviour
                 if (Lstick.x >= 0.1f)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     if (!bRight)
 =======
                     rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
@@ -121,6 +115,9 @@ public class PlayerMove : MonoBehaviour
                     rb.velocity = new Vector3(rb.velocity.x * 0.1f, rb.velocity.y, rb.velocity.z);
                     if (rb.velocity.x >= 0.01f)
 >>>>>>> origin/Yuuki
+=======
+                    if (!bRight)
+>>>>>>> origin/Motoyama
                     {
                         rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
                         transform.rotation = Quaternion.Euler(0, 90, 0);
@@ -206,27 +203,6 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        if(bRightTurn)
-        {
-            vDir.x = 1.0f;
-            Rot = Quaternion.LookRotation(vDir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
-        }
-        if (bLeftTurn)
-        {
-            vDir.x = -1.0f;
-            Rot = Quaternion.LookRotation(vDir);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
-        }
-        Debug.Log("Velo" + rb.velocity.magnitude);
-        if(rb.velocity.magnitude >= 20f)
-        {
-            rb.velocity /= (rb.velocity.magnitude / 20f);
-        }
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Field")
@@ -239,12 +215,16 @@ public class PlayerMove : MonoBehaviour
                 bJump = true;
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/Motoyama
             // フェード中でなければ効果音を再生
             if(!bFade)
             {
                 AudioManager.instance.Play("PlayerLanding");
             }
             anim.SetTrigger("Landing");
+<<<<<<< HEAD
 =======
             if(rb.velocity.magnitude >= 5.0f)
             {
@@ -252,6 +232,8 @@ public class PlayerMove : MonoBehaviour
                 anim.SetTrigger("Landing");
             }
 >>>>>>> origin/Yuuki
+=======
+>>>>>>> origin/Motoyama
         }
 
         if (collision.gameObject.tag == "Box")
@@ -343,6 +325,7 @@ public class PlayerMove : MonoBehaviour
         goFadeIn = GameObject.Find("FadeIn");
         FI = goFadeIn.GetComponent<FadeIn>();
 <<<<<<< HEAD
+<<<<<<< HEAD
         // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
         FI.StartFadeIn();
 =======
@@ -362,6 +345,10 @@ public class PlayerMove : MonoBehaviour
         //}
         bDeath = false;   // 死亡フラグ無効
 >>>>>>> origin/Yuuki
+=======
+        // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
+        FI.StartFadeIn();
+>>>>>>> origin/Motoyama
     }
 
     public void ReStart()
