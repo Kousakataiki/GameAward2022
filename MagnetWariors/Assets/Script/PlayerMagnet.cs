@@ -30,8 +30,8 @@ public class PlayerMagnet : MagnetType
 
     private void Awake()
     {
-        Nbar = GameObject.Find("Nbar").GetComponent<Slider>();
-        Sbar = GameObject.Find("Sbar").GetComponent<Slider>();
+        //Nbar = GameObject.Find("Nbar").GetComponent<Slider>();
+        //Sbar = GameObject.Find("Sbar").GetComponent<Slider>();
     }
 
     // Start is called before the first frame update
@@ -187,8 +187,8 @@ public class PlayerMagnet : MagnetType
             NTimer = 0.0f;
         }
 
-        Nbar.value = Namount;
-        Sbar.value = Samount;
+        //Nbar.value = Namount;
+        //Sbar.value = Samount;
     }
 
     public void RemoveMagnetWall()

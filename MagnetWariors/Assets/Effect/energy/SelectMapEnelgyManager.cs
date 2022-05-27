@@ -43,8 +43,8 @@ public class SelectMapEnelgyManager : MonoBehaviour
     void initEvent()
     {
         //解放しなくていいときはしない
-        if( openMapNum == 0||
-            worldNumber  != 3)
+        if( openMapNum == 0
+          )//  worldNumber  != 3)
         {
             isOpenEvent = false;
             return;
@@ -122,36 +122,47 @@ public class SelectMapEnelgyManager : MonoBehaviour
         return vec;
     }
 
+    //エネルギーブロックのシェーダー有効判定
     void setEnelgyCubeMode()
     {
+        //解放状況を取得
         int MaterialOnCount = openMapNum;
+        //演出中は点灯演出の物は付けない
         if (isOpenEvent)
         {
             MaterialOnCount--;
         }
 
-        for(int i = 0; i < enelgyCubeList.Count; ++i)
+        //オンオフの切り替え
+        for(int i = 0; i < enelgyCubeList.Count; ++i)//全て判断しないとシェーダがうまく機能しない
         {
-            for(int j = 0; j < enelgyCubeList[i].tagList.Count; ++j)
+            for(int j = 0; j < enelgyCubeList[i].tagList.Count; ++j)//要素数全てに適用
             {
+                //点灯しても良ければ"_on"フラグを有効
                 if (i < MaterialOnCount)
                 {
                     enelgyCubeList[i].tagList[j].GetComponent<Renderer>().material.SetInt("_on",1);
+
                 }
+                //点灯していけなければ"_on"フラグを無効
                 else
                 {
                     enelgyCubeList[i].tagList[j].GetComponent<Renderer>().material.SetInt("_on", 0);
                 }
+                //パーティクルイベントが終了していた場合起動準備
                 if (!isOpenEvent)
                 {
-
+                    //徐々に起動するように処理
                     enelgyFadeTime += enelgyFadeSpeed * Time.deltaTime;
                     if (enelgyFadeTime > 1)
                         enelgyFadeTime = 1.0f;
+
+                    //シェダ側で強さを変更
                     if (i == openMapNum-1)
                     {
                         enelgyCubeList[i].tagList[j].GetComponent<Renderer>().material.SetFloat("_pow",Mathf.Pow( enelgyFadeTime,2));
                     }
+                    //すでに点灯してていいものはPowを1に(シェーダの使用で書いてある)
                     else
                     {
                         enelgyCubeList[i].tagList[j].GetComponent<Renderer>().material.SetFloat("_pow", 1);
