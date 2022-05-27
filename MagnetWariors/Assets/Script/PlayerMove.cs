@@ -30,6 +30,13 @@ public class PlayerMove : MonoBehaviour
     private bool bRight = false;
     private bool bLeft = false;
 
+    private bool bRightTurn = false;
+    private bool bLeftTurn = false;
+
+    private Vector3 vDir = Vector3.zero;
+    private Quaternion Rot;
+    private float fSmooth = 4f;
+
     private Animator anim;
     private GameObject goFadeIn;
     private FadeIn FI;
@@ -83,8 +90,11 @@ public class PlayerMove : MonoBehaviour
                     if (!bRight)
                     {
                         rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                        transform.rotation = Quaternion.Euler(0, 90, 0);
-                        MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                        if(!bRightTurn)
+                        {
+                            bRightTurn = true;
+                            bLeftTurn = false;
+                        }
                     }
                 }
                 else if (Lstick.x <= -0.1f)
@@ -92,8 +102,11 @@ public class PlayerMove : MonoBehaviour
                     if (!bLeft)
                     {
                         rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                        transform.rotation = Quaternion.Euler(0, -90, 0);
-                        MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                        if(!bLeftTurn)
+                        {
+                            bLeftTurn = true;
+                            bRightTurn = false;
+                        }
                     }
                 }
                 else
@@ -166,6 +179,27 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if (bRightTurn)
+        {
+            vDir.x = 1.0f;
+            Rot = Quaternion.LookRotation(vDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
+        }
+        if (bLeftTurn)
+        {
+            vDir.x = -1.0f;
+            Rot = Quaternion.LookRotation(vDir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
+        }
+        Debug.Log("Velo" + rb.velocity.magnitude);
+        if (rb.velocity.magnitude >= 20f)
+        {
+            rb.velocity /= (rb.velocity.magnitude / 20f);
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Field")
@@ -180,9 +214,12 @@ public class PlayerMove : MonoBehaviour
             // フェード中でなければ効果音を再生
             if(!bFade)
             {
+                if(rb.velocity.magnitude >= 5.0f)
+                { 
                 AudioManager.instance.Play("PlayerLanding");
+                anim.SetTrigger("Landing");
+                }
             }
-            anim.SetTrigger("Landing");
         }
 
         if (collision.gameObject.tag == "Box")
@@ -194,8 +231,14 @@ public class PlayerMove : MonoBehaviour
             {
                 bJump = true;
             }
-            AudioManager.instance.Play("PlayerLanding");
-            anim.SetTrigger("Landing");
+            if(!bFade)
+            {
+                if(rb.velocity.magnitude >= 5.0f)
+                {
+                    AudioManager.instance.Play("PlayerLanding");
+                    anim.SetTrigger("Landing");
+                }
+            }
         }
     }
 
