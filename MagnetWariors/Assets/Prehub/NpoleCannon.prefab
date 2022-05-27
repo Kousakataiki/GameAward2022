@@ -216,7 +216,7 @@ MonoBehaviour:
   Bullet: {fileID: 5556738624735920311, guid: 6e8b49ae45084fa43abff99c40cdf500, type: 3}
   SBullet: {fileID: 1249421284465202373, guid: d4ab7e0e69999ab4da7c4eead0a16bed, type: 3}
   NBullet: {fileID: 1624557086672676357, guid: 5fcd1fe49167be44e812cf5fe405b67e, type: 3}
-  fIntTime: 3
+  fIntTime: 5
   vec: 0
   BarrelObj: {fileID: 1398530392382301612}
 --- !u!1 &4045162120675125533
