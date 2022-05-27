@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5455687301581437622}
   m_Layer: 0
   m_Name: Nbullet_2sec
-  m_TagString: Untagged
+  m_TagString: MagnetWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
