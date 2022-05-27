@@ -11191,10 +11191,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc919d192911d5e43b172a5d14a355d0, type: 3}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/Motoyama
 --- !u!1 &1564696202
 GameObject:
   m_ObjectHideFlags: 0
@@ -14560,11 +14556,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052138474}
   m_Mesh: {fileID: 8886954614871117699, guid: b2dc3c86e3b3a834797f9d75d4609217, type: 3}
-<<<<<<< HEAD
-=======
->>>>>>> origin/Yuuki
-=======
->>>>>>> origin/Motoyama
 --- !u!1 &2066181767
 GameObject:
   m_ObjectHideFlags: 0
