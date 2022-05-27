@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ReturnSceme : MonoBehaviour
 {
+    [SerializeField] private string SceneName;
+
     public void ButtonClicked()
     {
-        SceneManager.LoadScene("World_1"); // (" ここの中にステージシーン名を入力 ")
+        SceneManager.LoadScene(SceneName);
     }
 
     // Start is called before the first frame update
