@@ -13,8 +13,6 @@ TagManager:
   - Area
   - StartPos
   - jumpblock
-  - ReStart
-  - ReStartObj
   layers:
   - Default
   - TransparentFX
@@ -26,7 +24,7 @@ TagManager:
   - 
   - 
   - 
-  - magnet
+  - Magnet
   - 
   - 
   - 

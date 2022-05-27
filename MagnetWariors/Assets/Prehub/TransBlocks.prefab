@@ -189,4 +189,4 @@ MonoBehaviour:
   CenterObj: {fileID: 8686629609685634718}
   magnetObjList: []
   bFirst: 0
-  range: 50
+  range: 5

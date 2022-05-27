@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5955271323154113737}
   - component: {fileID: 5205740843202156782}
   - component: {fileID: 5877471429449020961}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MagnetForce
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
@@ -109,7 +109,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pole: 0
-  MagnetForce: 500
 --- !u!1 &8964677291720365933
 GameObject:
   m_ObjectHideFlags: 0
