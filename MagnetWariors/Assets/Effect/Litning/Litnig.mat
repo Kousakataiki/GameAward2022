@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Litnig
-  m_Shader: {fileID: -6465566751694194690, guid: 875dfb5781e973242b140c39f29c3fc7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 745aa64e7df8cf546ae4732a85b19bbc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0

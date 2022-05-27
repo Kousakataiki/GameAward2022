@@ -7,7 +7,7 @@ public class EnemyDeath : MagnetType
     // Start is called before the first frame update
     void Start()
     {
-        pole = GetComponent<EnemyMoveAround>().GetMagnetType();
+        pole = transform.parent.gameObject.GetComponent<EnemyMoveAround>().GetMagnetType();
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class EnemyDeath : MagnetType
             Debug.Log("Use :" + bPlayerMagnet);
             if(bPlayerMagnet && pole != PlayerPole)
             {
-                Destroy(this.gameObject);
+                //Destroy(this.gameObject);
             }
             else
             {
