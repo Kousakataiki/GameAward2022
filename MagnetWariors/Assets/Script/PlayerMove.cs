@@ -173,7 +173,7 @@ public class PlayerMove : MonoBehaviour
             Vector3 colPos = collision.gameObject.transform.position;
             Vector3 colSize = collision.gameObject.GetComponent<BoxCollider>().bounds.size;
             Vector3 colPoint = collision.contacts[0].point;
-            if (colPos.x - colSize.x / 2 <= colPoint.x && colPos.x + colSize.x / 2 >= colPoint.x && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
+            if (colPos.x - colSize.x / 2 <= colPoint.x + 0.2f && colPos.x + colSize.x / 2 >= colPoint.x - 0.2f && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
             {
                 bJump = true;
             }
@@ -190,7 +190,7 @@ public class PlayerMove : MonoBehaviour
             Vector3 colPos = collision.gameObject.transform.position;
             Vector3 colSize = collision.gameObject.GetComponent<BoxCollider>().bounds.size;
             Vector3 colPoint = collision.contacts[0].point;
-            if (colPos.x - colSize.x / 2 <= colPoint.x && colPos.x + colSize.x / 2 >= colPoint.x && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
+            if (colPos.x - colSize.x / 2 <= colPoint.x + 0.2f && colPos.x + colSize.x / 2 >= colPoint.x - 0.2f && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
             {
                 bJump = true;
             }
