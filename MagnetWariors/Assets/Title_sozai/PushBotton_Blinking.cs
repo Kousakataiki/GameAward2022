@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class PushBotton_Blinking : MonoBehaviour
 {
 
+    GameObject FadeObj;
+    Fade fade;
+
     //イメージ情報
     Image image;
 
@@ -33,6 +36,10 @@ public class PushBotton_Blinking : MonoBehaviour
         alpha_ = 0;
         Blinking_flag = false;
         alpha_value = 0.03f;
+
+        FadeObj = GameObject.Find("Fade");
+        fade = FadeObj.GetComponent<Fade>();
+
     }
 
     // Update is called once per frame
@@ -69,7 +76,9 @@ public class PushBotton_Blinking : MonoBehaviour
         if (Controller.GetKeyPress(Controller.ControllerButton.B))
         {
             //シーン読み込み
-            SceneManager.LoadScene("WorldSerect");
+            fade.fadeOutStart(0, 0, 0, 0, "WorldSerect");
+
+
         }
 
     }
