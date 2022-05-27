@@ -15,6 +15,9 @@ public class serectMap : MonoBehaviour
         Nuclear,
     }
 
+    GameObject FadeObj;
+    Fade fade;
+
     public GameObject WindSprite;
     public GameObject FireSprite;
     public GameObject WaterSprite;
@@ -61,6 +64,12 @@ public class serectMap : MonoBehaviour
 
         //マップの強調表示
         selectMap((int)serect);
+
+
+        FadeObj = GameObject.Find("Fade");
+        fade = FadeObj.GetComponent<Fade>();
+
+
     }
 
     // Update is called once per frame
@@ -83,7 +92,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("World_1");
+                    fade.fadeOutStart(0, 0, 0, 0, "World_1");
                 }
 
                 WindSprite.SetActive(true);
@@ -107,7 +116,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("World_2");
+                    fade.fadeOutStart(0, 0, 0, 0, "World_2");
                 }
 
                 WindSprite.SetActive(false);
@@ -131,7 +140,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("World_3");
+                    fade.fadeOutStart(0, 0, 0, 0, "World_3");
                 }
 
                 WindSprite.SetActive(false);
@@ -155,7 +164,7 @@ public class serectMap : MonoBehaviour
 
                 if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
                 {
-                    SceneManager.LoadScene("World_4");
+                    fade.fadeOutStart(0, 0, 0, 0, "World_4");
                 }
 
                 WindSprite.SetActive(false);

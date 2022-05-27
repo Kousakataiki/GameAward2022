@@ -8,18 +8,20 @@ public class MainCamera : MonoBehaviour
     {
         StartAnim,
         Game,
+        GoalAnim,
     }
 
-    public CAMERA_MODE Mode { get; set; }
+    CAMERA_MODE Mode;
 
     [SerializeField, Range(0.01f, 0.9f)] float MoveSpeed;   // 移動速度
     [SerializeField] float StartAnimSec;
+    [SerializeField] float GoalAnimSec;
 
     Vector3 TargetPos;  // 目標座標
     bool isMoving;      // 移動中フラグ
 
     float cnt;
-    Vector3 startpos;
+    Vector3 StartPos;
 
     void Start()
     {
@@ -45,7 +47,7 @@ public class MainCamera : MonoBehaviour
         SetTargetPos(startArea.GetComponent<StageArea>().CameraPos);
 
 
-        startpos = transform.position;
+        StartPos = transform.position;
         cnt = 0f;
         isMoving = false;
     }
@@ -60,11 +62,11 @@ public class MainCamera : MonoBehaviour
                 {
                     // 目標の座標に向けて移動
                     cnt = Mathf.Min(1f, cnt + (1 / StartAnimSec) * Time.deltaTime);
-                    transform.position = Vector3.Lerp(startpos, TargetPos, cnt);
+                    transform.position = Vector3.Lerp(StartPos, TargetPos, cnt);
 
-                    if(cnt == 1f)
+                    if(cnt >= 1f)
                     {
-                        Mode = CAMERA_MODE.Game;
+                        SetCameraMode(CAMERA_MODE.Game);
                         isMoving = false;
                     }
                 }
@@ -86,12 +88,46 @@ public class MainCamera : MonoBehaviour
                 }
 
                 break;
+
+            case CAMERA_MODE.GoalAnim:
+
+                if(isMoving)
+                {
+                    // 目標の座標に向けて移動
+                    cnt = Mathf.Min(1f, cnt + (1 / GoalAnimSec) * Time.deltaTime);
+                    transform.position = Vector3.Lerp(StartPos, TargetPos, cnt);
+
+                    if (cnt >= 1f)
+                    {
+                        isMoving = false;
+                    }
+                }
+
+                break;
         }
     }
+
+
+    public void SetCameraMode(CAMERA_MODE mode)
+    {
+        Mode = mode;
+        StartPos = transform.position;
+        isMoving = false;
+    }
+
 
     public void PlayStartAnim()
     {
         if(Mode == CAMERA_MODE.StartAnim)
+        {
+            cnt = 0f;
+            isMoving = true;
+        }
+    }
+
+    public void PlayGoalAnim()
+    {
+        if (Mode == CAMERA_MODE.GoalAnim)
         {
             cnt = 0f;
             isMoving = true;

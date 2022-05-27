@@ -13,8 +13,12 @@ GameObject:
   - component: {fileID: 2704556629101367026}
   - component: {fileID: 2704556629101367027}
   - component: {fileID: 2704556629101367028}
+<<<<<<< HEAD
   - component: {fileID: 3265711103340450745}
   m_Layer: 0
+=======
+  m_Layer: 10
+>>>>>>> origin/manabe_daisuke_branch
   m_Name: MagnetForce (1)
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
@@ -139,7 +143,7 @@ GameObject:
   - component: {fileID: 4886486994210713337}
   - component: {fileID: 3651199380378551193}
   - component: {fileID: 6582615126656597869}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MagnetForce
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
