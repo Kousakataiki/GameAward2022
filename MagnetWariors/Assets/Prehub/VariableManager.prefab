@@ -48,7 +48,7 @@ MonoBehaviour:
   playerMagnetStrength: 50
   playerMagnetRange: 5
   MaxMagnetAmount: 100
-  SpendMagnetAmount: 1
+  SpendMagnetAmount: 0
   HealMagnetAmount: 1
   RimitHeight: 1.25
   MagnetWallAttractStrength: 500
