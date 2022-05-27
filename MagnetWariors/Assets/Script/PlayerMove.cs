@@ -15,7 +15,12 @@ public class PlayerMove : MonoBehaviour
 
     private bool bJump = true;
 
-    private Vector3 DebugRestartPos;
+    public  Vector3 DebugRestartPos;
+    public  Vector3 RestartPos;
+    public bool bDeath = false;         // プレイヤー死亡中は有効
+    public bool bSpark = false;         // プレイヤー感電中は有効
+    public bool bFade = false;          // フェード処理中は有効
+    public bool bStopPlayer = false;    // プレイヤー死亡時や感電時に操作を不可能にするためのフラグ
 
     private bool bMoveBGM = false;
     private bool bMove = true;
@@ -26,6 +31,8 @@ public class PlayerMove : MonoBehaviour
     private bool bLeft = false;
 
     private Animator anim;
+    private GameObject goFadeIn;
+    private FadeIn FI;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +41,8 @@ public class PlayerMove : MonoBehaviour
         jumpPower = VariableManager.playerJumpPower_s;
 
         rb = GetComponent<Rigidbody>();
-        DebugRestartPos = transform.position;
+        DebugRestartPos = new Vector3(transform.position.x, 0.6f, transform.position.z);
+        RestartPos = DebugRestartPos;
 
         anim = GetComponent<Animator>();
 
@@ -44,76 +52,80 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetFloat("Speed",Mathf.Abs(rb.velocity.x));
-
-        if (transform.Find("Magnet").gameObject.activeSelf)
+        // プレイヤー停止フラグが無効なら処理
+        if(!bStopPlayer)
         {
-            bool bValidMagnet = transform.Find("Magnet").gameObject.GetComponent<PlayerMagnetForce>().MagnetFlg();
-            if (bValidMagnet)
+            anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+
+            if (transform.Find("Magnet").gameObject.activeSelf)
             {
-                bMagnet = true;
+                bool bValidMagnet = transform.Find("Magnet").gameObject.GetComponent<PlayerMagnetForce>().MagnetFlg();
+                if (bValidMagnet)
+                {
+                    bMagnet = true;
+                }
+                else
+                {
+                    bMagnet = false;
+                }
             }
             else
             {
+                transform.Find("Magnet").gameObject.GetComponent<PlayerMagnetForce>().UnValidMagnet();
                 bMagnet = false;
             }
-        }
-        else
-        {
-            transform.Find("Magnet").gameObject.GetComponent<PlayerMagnetForce>().UnValidMagnet();
-            bMagnet = false;
-        }
 
-        if (!bMagnet)
-        {
-            Lstick = Controller.StickValue(Controller.ControllerStick.LStick);
-            if (Lstick.x >= 0.1f)
+            if (!bMagnet)
             {
-                if(!bRight)
+                Lstick = Controller.StickValue(Controller.ControllerStick.LStick);
+                if (Lstick.x >= 0.1f)
                 {
-                    rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    transform.rotation = Quaternion.Euler(0, 90, 0);
-                    MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
-                }
-            }
-            else if (Lstick.x <= -0.1f)
-            {
-                if (!bLeft)
-                {
-                    rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
-                    transform.rotation = Quaternion.Euler(0, -90, 0);
-                    MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
-                }
-            }
-            else
-            {
-                if (bJump)
-                {
-                    rb.velocity = new Vector3(rb.velocity.x * 0.1f, rb.velocity.y, rb.velocity.z);
-                    if (rb.velocity.x >= 0.01f)
+                    if (!bRight)
                     {
-                        rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+                        rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
+                        transform.rotation = Quaternion.Euler(0, 90, 0);
+                        MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    }
+                }
+                else if (Lstick.x <= -0.1f)
+                {
+                    if (!bLeft)
+                    {
+                        rb.velocity = new Vector3(Lstick.x * moveSpeed, rb.velocity.y, rb.velocity.z);
+                        transform.rotation = Quaternion.Euler(0, -90, 0);
+                        MagnetObj.transform.rotation = Quaternion.Euler(0, 90, 0);
+                    }
+                }
+                else
+                {
+                    if (bJump)
+                    {
+                        rb.velocity = new Vector3(rb.velocity.x * 0.1f, rb.velocity.y, rb.velocity.z);
+                        if (rb.velocity.x >= 0.01f)
+                        {
+                            rb.velocity = new Vector3(0, rb.velocity.y, rb.velocity.z);
+                        }
                     }
                 }
             }
-        }
-        
 
-        if(Controller.GetKeyTrigger(Controller.ControllerButton.A))
-        {
-            if (bJump)
+            if (Controller.GetKeyTrigger(Controller.ControllerButton.A))
             {
-                bJump = false;
-                AudioManager.instance.Play("PlayerJump");
-                anim.SetTrigger("Jump");
-                rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+                if (bJump)
+                {
+                    bJump = false;
+                    AudioManager.instance.Play("PlayerJump");
+                    anim.SetTrigger("Jump");
+                    rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+                }
+            }
+
+            if (Controller.GetKeyTrigger(Controller.ControllerButton.Select))
+            {
+                transform.position = DebugRestartPos;
             }
         }
-
-        if(Controller.GetKeyTrigger(Controller.ControllerButton.Select))
-        {
-            transform.position = DebugRestartPos;
-        }
+        
 
         if (rb.velocity.magnitude >= 2)
         {
@@ -131,6 +143,27 @@ public class PlayerMove : MonoBehaviour
                 bMoveBGM = false;
             }
         }
+
+        // プレイヤー停止フラグが有効時は重力を解除する
+        if(bStopPlayer)
+        {
+            // 重力解除
+            rb.isKinematic = true;
+            // 停止
+            rb.velocity = Vector3.zero;
+        }
+        else
+        {
+            rb.isKinematic = false;
+        }
+
+
+        // プレイヤー死亡フラグが有効でフェード処理実行中で無ければ処理を行う
+        if (bDeath && !bFade)
+        {
+            // フェードイン(リスタート処理)開始
+            StartFade();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -144,7 +177,11 @@ public class PlayerMove : MonoBehaviour
             {
                 bJump = true;
             }
-            AudioManager.instance.Play("PlayerLanding");
+            // フェード中でなければ効果音を再生
+            if(!bFade)
+            {
+                AudioManager.instance.Play("PlayerLanding");
+            }
             anim.SetTrigger("Landing");
         }
 
@@ -227,5 +264,34 @@ public class PlayerMove : MonoBehaviour
     public void JumpAction()
     {
         rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
+    }
+
+    private void StartFade()
+    {
+        // フェード処理フラグ有効化
+        bFade = true;
+        // フェードインのコンポーネント取得
+        goFadeIn = GameObject.Find("FadeIn");
+        FI = goFadeIn.GetComponent<FadeIn>();
+        // プレイヤー死亡アニメーション(演出)が終了後、フェードアウトしてリスタート座標に移動する
+        FI.StartFadeIn();
+    }
+
+    public void ReStart()
+    {
+        // プレイヤーの慣性などを無くす
+        rb.velocity = Vector3.zero;
+        // リスタート座標にプレイヤーを移動させる
+        transform.position = RestartPos;
+        // 死亡フラグ無効
+        bDeath = false;
+    }
+
+    private void SparkAnimEnd()
+    {
+        // 感電アニメーション終了時に呼び出される
+        StartFade();
+        // アニメーション終了
+        bSpark = false;
     }
 }

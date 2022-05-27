@@ -17,17 +17,23 @@ public class EnemyMoveAround : MagnetType
     // 敵パラメータ
     [SerializeField] public float fSpd;
     [SerializeField] public float fSmooth;
-    private Vector3 vDir = Vector3.zero;
+    public Vector3 vDir = Vector3.zero;
     private Quaternion Rot;
     // フラグ
     private bool bN = false;    
     private bool bS = false;
-    public Dir dir; 
+    public Dir dir;
+    //GameObject goParent;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
+        // 親コンポーネント取得
+        //goParent = transform.parent.gameObject;
+        //rb = goParent.GetComponent<Rigidbody>();
+        
         // コンポーネント取得
         rb = GetComponent<Rigidbody>();
 
@@ -62,14 +68,16 @@ public class EnemyMoveAround : MagnetType
         {
             // 左を向いている
             case Dir.L:
-                vDir.x = -1.0f;
+                vDir.z = -1.0f;
+                //vDir.x = -1.0f;
                 Rot = Quaternion.LookRotation(vDir);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
                 break;
 
             // 右を向いている
             case Dir.R:
-                vDir.x = 1.0f;
+                vDir.z = 1.0f;
+                //vDir.x = 1.0f;
                 Rot = Quaternion.LookRotation(vDir);
                 transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
                 break;
@@ -77,7 +85,8 @@ public class EnemyMoveAround : MagnetType
             default:
                 break;
         }
-        rb.velocity = new Vector3((rb.velocity.x + vDir.x) * fSpd, rb.velocity.y, rb.velocity.z);
+        rb.velocity = new Vector3((rb.velocity.x + vDir.z) * fSpd, rb.velocity.y, rb.velocity.z);
+        //rb.velocity = new Vector3((rb.velocity.x + vDir.x) * fSpd, rb.velocity.y, rb.velocity.z);
     }
 
     // 反転

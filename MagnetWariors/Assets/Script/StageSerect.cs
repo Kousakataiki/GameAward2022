@@ -66,7 +66,7 @@ public class StageSerect : MonoBehaviour
             switch (stagenum)
             {
                 case StageNum.Wind_1:
-                    SceneManager.LoadScene("W2S1");
+                    SceneManager.LoadScene("W1S1");
                     break;
                 case StageNum.Wind_2:
                     SceneManager.LoadScene("W1S2");

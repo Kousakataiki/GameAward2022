@@ -11,6 +11,10 @@ TagManager:
   - Box
   - ReverseWall
   - Area
+  - StartPos
+  - jumpblock
+  - ReStart
+  - ReStartObj
   layers:
   - Default
   - TransparentFX
