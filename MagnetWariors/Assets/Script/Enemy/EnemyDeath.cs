@@ -30,7 +30,7 @@ public class EnemyDeath : MagnetType
             }
             else
             {
-                Destroy(coll.gameObject);
+                //Destroy(coll.gameObject);
             }
         }
 
