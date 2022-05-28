@@ -46,9 +46,11 @@ public class SmokeUIManager : MonoBehaviour
         //表示しないすべて無効
         for (int i = 0; i < LiberationWorldState; ++i)
         {
-            if(i != 4)
+            if(i < 3)
                 SumokeEffects[i].SetActive(false);
         }
+
+
 
         //演出しなくていいとき判定
         if (!(LiberationWorldMapState == 0) || LiberationWorldState == 0)
@@ -56,20 +58,26 @@ public class SmokeUIManager : MonoBehaviour
             return;
         }
         
-
+        if(LiberationMapState == 32)
+        {
+            return;
+        }
 
         //消すスモークを選択
-        SumokeTimeEffect = SumokeEffects[LiberationWorldState - 1];
+        if(LiberationWorldState < 4)
+            SumokeTimeEffect = SumokeEffects[LiberationWorldState - 1];
 
         //消すスモークを有効化
-        SumokeTimeEffect.SetActive(true);
+        if(SumokeTimeEffect != null)
+            SumokeTimeEffect.SetActive(true);
 
         //煙消去モード有効化
         isSmokeNow = true;
         isSmoke = isSmokeNow;   //インスペクター確認用
 
         //VFX取得
-        SumokeVFX = SumokeTimeEffect.GetComponent<VisualEffect>();
+        if (SumokeTimeEffect != null)
+            SumokeVFX = SumokeTimeEffect.GetComponent<VisualEffect>();
 
 
         //多分ここに音を追加
@@ -85,7 +93,7 @@ public class SmokeUIManager : MonoBehaviour
             return;
 
         //レートタイマーが0になったらレートを0にする
-        if (rateCounter<0)
+        if (rateCounter<0 && SumokeVFX != null)
             SumokeVFX.SetInt("rate", 0);
         else
             rateCounter--;
@@ -95,7 +103,8 @@ public class SmokeUIManager : MonoBehaviour
         if (SmokeTimer < 0)
         {
             //演出の終わったスモークを消す
-            SumokeTimeEffect.SetActive(false);
+            if (SumokeTimeEffect != null)
+                SumokeTimeEffect.SetActive(false);
 
             //フラグを変更
             isSmokeNow = false;

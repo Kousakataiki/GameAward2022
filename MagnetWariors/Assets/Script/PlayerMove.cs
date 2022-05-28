@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     private float moveSpeed = 5.0f;
     private float jumpPower = 5.0f;
 
-    private bool bJump = true;
+    public bool bJump = true;
 
     public  Vector3 DebugRestartPos;
     public  Vector3 RestartPos;
@@ -193,11 +193,11 @@ public class PlayerMove : MonoBehaviour
             Rot = Quaternion.LookRotation(vDir);
             transform.rotation = Quaternion.Lerp(transform.rotation, Rot, Time.deltaTime * fSmooth);
         }
-        Debug.Log("Velo" + rb.velocity.magnitude);
         if (rb.velocity.magnitude >= 20f)
         {
             rb.velocity /= (rb.velocity.magnitude / 20f);
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -207,18 +207,16 @@ public class PlayerMove : MonoBehaviour
             Vector3 colPos = collision.gameObject.transform.position;
             Vector3 colSize = collision.gameObject.GetComponent<BoxCollider>().bounds.size;
             Vector3 colPoint = collision.contacts[0].point;
-            if (colPos.x - colSize.x / 2 <= colPoint.x + 0.2f && colPos.x + colSize.x / 2 >= colPoint.x - 0.2f && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
+            if (colPos.x - colSize.x / 2 <= colPoint.x/* + 0.2f*/ && colPos.x + colSize.x / 2 >= colPoint.x/* - 0.2f*/ && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
             {
-                bJump = true;
-            }
-            // フェード中でなければ効果音を再生
-            if(!bFade)
-            {
-                if(rb.velocity.magnitude >= 10.0f)
-                { 
-                AudioManager.instance.Play("PlayerLanding");
-                anim.SetTrigger("Landing");
+                // フェード中でなければ効果音を再生
+                if (!bFade && !bJump)
+                {
+                    AudioManager.instance.Play("PlayerLanding");
+                    anim.SetTrigger("Landing");
+                    
                 }
+                bJump = true;
             }
         }
 
@@ -227,17 +225,14 @@ public class PlayerMove : MonoBehaviour
             Vector3 colPos = collision.gameObject.transform.position;
             Vector3 colSize = collision.gameObject.GetComponent<BoxCollider>().bounds.size;
             Vector3 colPoint = collision.contacts[0].point;
-            if (colPos.x - colSize.x / 2 <= colPoint.x + 0.2f && colPos.x + colSize.x / 2 >= colPoint.x - 0.2f && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
+            if (colPos.x - colSize.x / 2 <= colPoint.x /*+ 0.2f*/ && colPos.x + colSize.x / 2 >= colPoint.x /*- 0.2f*/ && colPos.y + colSize.y / 2 <= colPoint.y + 0.8f)
             {
-                bJump = true;
-            }
-            if(!bFade)
-            {
-                if(rb.velocity.magnitude >= 10.0f)
+                if (!bFade && !bJump)
                 {
                     AudioManager.instance.Play("PlayerLanding");
                     anim.SetTrigger("Landing");
                 }
+                bJump = true;
             }
         }
     }
@@ -281,7 +276,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Field")
         {
-            bJump = false;
             bLeft = false;
             bRight = false;
             if (bMoveBGM)
@@ -293,7 +287,6 @@ public class PlayerMove : MonoBehaviour
 
         if(collision.gameObject.tag == "Box")
         {
-            bJump = false;
             bLeft = false;
             bRight = false;
             if (bMoveBGM)
@@ -306,6 +299,7 @@ public class PlayerMove : MonoBehaviour
     
     public void JumpAction()
     {
+        bJump = false;
         rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
     }
 
