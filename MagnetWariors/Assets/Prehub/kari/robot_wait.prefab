@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 1143838344299492476}
   - component: {fileID: 1143838344299492477}
   - component: {fileID: 1143838344299492738}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Magnet
   m_TagString: PlayerMagnet
   m_Icon: {fileID: 0}
