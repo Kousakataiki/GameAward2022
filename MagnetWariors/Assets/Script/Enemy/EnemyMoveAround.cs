@@ -29,13 +29,6 @@ public class EnemyMoveAround : MagnetType
     {
         // コンポーネント取得
         rb = GetComponent<Rigidbody>();
-
-        // 向いている方向を初期化
-        //if (this.gameObject.tag == "FloatEnemyVertical")
-        //    dir = Dir.Down;
-        //else
-        //    dir = Dir.Left;
-
     }
 
     // Update is called once per frame

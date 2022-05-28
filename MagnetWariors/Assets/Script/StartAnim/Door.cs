@@ -35,7 +35,9 @@ public class Door : MonoBehaviour
 
     public void EndOpen()
     {
-        GameObject.FindWithTag("Player").GetComponent<PlayerStartAnim>().Play();
+        PlayerStartAnim PSA = GameObject.FindWithTag("Player").GetComponent<PlayerStartAnim>();
+        if (PSA != null)
+            PSA.Play();
     }
 
     public void EndClose()
