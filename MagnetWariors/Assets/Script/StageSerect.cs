@@ -78,6 +78,10 @@ public class StageSerect : MonoBehaviour
     [SerializeField] float RotateSpeed;
     [SerializeField] float EnterSpeed;
     [SerializeField] float DoorAnimSpeed;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] TextMesh textmesh;
+
+    private string str_StageNum, World, Stage;
 
     float AnimCnt;
 
@@ -127,6 +131,9 @@ public class StageSerect : MonoBehaviour
         StageFileName[29] = "W4S6";
         StageFileName[30] = "W4S7";
         StageFileName[31] = "W4S8";
+
+        // ドアの行き先を表示
+        DispDestination();
     }
 
     // Update is called once per frame
@@ -206,11 +213,55 @@ public class StageSerect : MonoBehaviour
         }
     }
 
+    // ドアの行先表示
+    private void DispDestination()
+    {
+        // stagenumの中身をstrに変換する
+        str_StageNum = string.Format("{0}", stagenum);
+
+        // ワールド値を設定する。stagenumのワードで分岐。Windならば１、Fireならば２
+        if (str_StageNum.Contains("Wind"))
+            World = string.Format("1");
+        else if (str_StageNum.Contains("Fire"))
+            World = string.Format("2");
+        else if (str_StageNum.Contains("Water"))
+            World = string.Format("3");
+        else if (str_StageNum.Contains("Nuclear"))
+            World = string.Format("4");
+
+            // ステージ値を設定する。stagenumのワードで分岐。1なら1、2なら2
+        if (str_StageNum.Contains("1"))
+            Stage = string.Format("1");
+        else if (str_StageNum.Contains("2"))
+            Stage = string.Format("2");
+        else if (str_StageNum.Contains("3"))
+            Stage = string.Format("3");
+        else if (str_StageNum.Contains("4"))
+            Stage = string.Format("4");
+        else if (str_StageNum.Contains("5"))
+            Stage = string.Format("5");
+        else if (str_StageNum.Contains("6"))
+            Stage = string.Format("6");
+        else if (str_StageNum.Contains("7"))
+            Stage = string.Format("7");
+        else if (str_StageNum.Contains("8"))
+            Stage = string.Format("8");
+
+        // ワールド値とステージ値を表示
+        textmesh.text = World + " - " + Stage;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
             Hitflag = true;
+            sprite.enabled = true;
         }
-    }   
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        sprite.enabled = false;
+    }
 }
