@@ -214,7 +214,7 @@ public class PlayerMove : MonoBehaviour
             // フェード中でなければ効果音を再生
             if(!bFade)
             {
-                if(rb.velocity.magnitude >= 5.0f)
+                if(rb.velocity.magnitude >= 10.0f)
                 { 
                 AudioManager.instance.Play("PlayerLanding");
                 anim.SetTrigger("Landing");
@@ -233,7 +233,7 @@ public class PlayerMove : MonoBehaviour
             }
             if(!bFade)
             {
-                if(rb.velocity.magnitude >= 5.0f)
+                if(rb.velocity.magnitude >= 10.0f)
                 {
                     AudioManager.instance.Play("PlayerLanding");
                     anim.SetTrigger("Landing");

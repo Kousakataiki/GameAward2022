@@ -28,7 +28,7 @@ public class SaveDataManager : MonoBehaviour
             Debug.Log("StageState" + ClearStageState);
         }
 
-        if(Controller.GetKeyRelease(Controller.ControllerButton.X))
+        if(Controller.GetKeyTrigger(Controller.ControllerButton.X))
         {
             SaveData.UpdateClearState(ClearStageState + 1);
             ClearStageState = SaveData.GetClearState();

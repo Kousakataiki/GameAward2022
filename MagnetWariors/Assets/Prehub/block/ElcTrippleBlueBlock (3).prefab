@@ -13,12 +13,7 @@ GameObject:
   - component: {fileID: 2704556629101367026}
   - component: {fileID: 2704556629101367027}
   - component: {fileID: 2704556629101367028}
-<<<<<<< HEAD
-  - component: {fileID: 3265711103340450745}
-  m_Layer: 0
-=======
   m_Layer: 10
->>>>>>> origin/manabe_daisuke_branch
   m_Name: MagnetForce (1)
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
@@ -118,18 +113,6 @@ MonoBehaviour:
   ChengeTime: 0
   setPos: 0
   setSize: 0
---- !u!114 &3265711103340450745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2704556629101367025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92f6e8d20beb9394b94917cf6df62188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7358960497649299431
 GameObject:
   m_ObjectHideFlags: 0

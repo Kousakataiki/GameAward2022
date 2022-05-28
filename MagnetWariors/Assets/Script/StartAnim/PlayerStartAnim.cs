@@ -97,6 +97,7 @@ public class PlayerStartAnim : MonoBehaviour
                 rb.useGravity = true;
                 col.enabled = true;
                 GetComponent<Player>().enabled = true;
+                AudioManager.instance.BGMStop("PlayerWalk");
                 Destroy(this);
             }
         }
@@ -108,5 +109,6 @@ public class PlayerStartAnim : MonoBehaviour
         isPlaying = true;
         isMoving = true;
         AnimCnt = 0f;
+        AudioManager.instance.BGMStart("PlayerWalk");
     }
 }

@@ -80,6 +80,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage_4/W4S5.unity
     guid: 5a2251bb292409a4bbf5c626ff7b95ea
+  - enabled: 1
+    path: Assets/Scenes/Stage_4/W4S6.unity
+    guid: b26fd2fdd0e9c65418e3d2ae6fdfbe34
+  - enabled: 1
+    path: Assets/Scenes/Stage_4/W4S7.unity
+    guid: 93ad1e9f2a0b8cf4abdf3a3855d53a8f
+  - enabled: 1
+    path: Assets/Scenes/Stage_4/W4S8.unity
+    guid: dccd2714414c8674facfd364b8a5f634
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
@@ -110,4 +119,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage_3/W3S5.unity
     guid: 27619cad45cc60e459a8b53d98122107
+  - enabled: 1
+    path: Assets/Scenes/Stage_3/W3S1.unity
+    guid: b49ff83144a80aa4d8ea5631e8eed615
   m_configObjects: {}

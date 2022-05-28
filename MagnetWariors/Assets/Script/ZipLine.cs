@@ -52,6 +52,7 @@ public class ZipLine : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (bHori)
         {
             if (moveVec.x > 0)   // ˆÚ“®•ûŒü‚ÌX‚ªƒvƒ‰ƒX
@@ -81,6 +82,7 @@ public class ZipLine : MonoBehaviour
                         bReverse = true;
                         bReverseProcess = true;
                         Invoke("WaitReverse", 2);
+
                     }
                 }
             }

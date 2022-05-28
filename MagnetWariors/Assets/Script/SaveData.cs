@@ -26,6 +26,9 @@ public class SaveData
         if(ClearState <= StageNum)
             ClearState = StageNum;
 
+        if (ClearState >= 32)
+            ClearState = 32;
+
         PlayerPrefs.SetInt("ClearState", ClearState);
         PlayerPrefs.Save();
     }
