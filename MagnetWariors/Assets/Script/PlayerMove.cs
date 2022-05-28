@@ -41,6 +41,8 @@ public class PlayerMove : MonoBehaviour
     private GameObject goFadeIn;
     private FadeIn FI;
 
+    private Vector3 velo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,8 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        velo = rb.velocity;
+
         // プレイヤー停止フラグが無効なら処理
         if(!bStopPlayer)
         {
@@ -138,7 +142,6 @@ public class PlayerMove : MonoBehaviour
                 transform.position = DebugRestartPos;
             }
         }
-        
 
         if (rb.velocity.magnitude >= 2)
         {
@@ -169,8 +172,7 @@ public class PlayerMove : MonoBehaviour
         {
             rb.isKinematic = false;
         }
-
-
+        
         // プレイヤー死亡フラグが有効でフェード処理実行中で無ければ処理を行う
         if (bDeath && !bFade)
         {
@@ -197,13 +199,17 @@ public class PlayerMove : MonoBehaviour
         {
             rb.velocity /= (rb.velocity.magnitude / 20f);
         }
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Field")
         {
+            if(velo.magnitude >= 7.5f && !bJump)
+            {
+                AudioManager.instance.Play("PlayerLanding");
+            }
+
             Vector3 colPos = collision.gameObject.transform.position;
             Vector3 colSize = collision.gameObject.GetComponent<BoxCollider>().bounds.size;
             Vector3 colPoint = collision.contacts[0].point;
@@ -212,9 +218,8 @@ public class PlayerMove : MonoBehaviour
                 // フェード中でなければ効果音を再生
                 if (!bFade && !bJump)
                 {
-                    AudioManager.instance.Play("PlayerLanding");
+                    //AudioManager.instance.Play("PlayerLanding");
                     anim.SetTrigger("Landing");
-                    
                 }
                 bJump = true;
             }
@@ -222,6 +227,11 @@ public class PlayerMove : MonoBehaviour
 
         if (collision.gameObject.tag == "Box")
         {
+            if (velo.magnitude >= 7.5f && !bJump)
+            {
+                AudioManager.instance.Play("PlayerLanding");
+            }
+
             Vector3 colPos = collision.gameObject.transform.position;
             Vector3 colSize = collision.gameObject.GetComponent<BoxCollider>().bounds.size;
             Vector3 colPoint = collision.contacts[0].point;
@@ -229,7 +239,7 @@ public class PlayerMove : MonoBehaviour
             {
                 if (!bFade && !bJump)
                 {
-                    AudioManager.instance.Play("PlayerLanding");
+                    //AudioManager.instance.Play("PlayerLanding");
                     anim.SetTrigger("Landing");
                 }
                 bJump = true;
