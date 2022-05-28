@@ -91,11 +91,10 @@ public class Goal : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Destroy(Player.GetComponent<PlayerMove>());
+            PlayerRB.velocity = new Vector3(0, 0, 0);
             StartRot = Player.transform.rotation;
             mainCamera.SetCameraMode(MainCamera.CAMERA_MODE.GoalAnim);
             anim.SetTrigger("Pull");
-
-            AudioManager.instance.Play("JINGLE_StageClear");
         }
     }
 

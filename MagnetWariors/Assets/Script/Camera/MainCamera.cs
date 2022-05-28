@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class MainCamera : MonoBehaviour
 {
@@ -17,6 +19,11 @@ public class MainCamera : MonoBehaviour
     [SerializeField] float StartAnimSec;
     [SerializeField] float GoalAnimSec;
 
+    [SerializeField] float FocusDistanceMargin;
+    GameObject Player;
+    Volume volume;
+    DepthOfField dof;
+
     Vector3 TargetPos;  // 目標座標
     bool isMoving;      // 移動中フラグ
 
@@ -25,9 +32,12 @@ public class MainCamera : MonoBehaviour
 
     void Start()
     {
+        volume = transform.Find("Global Volume").GetComponent<Volume>();
+        volume.profile.TryGet<DepthOfField>(out dof);
+
         //----- 一番近いエリアを開始エリアに指定 -----
         // オブジェクトを取得
-        GameObject player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindWithTag("Player");
         GameObject[] areas = GameObject.FindGameObjectsWithTag("Area");
 
         // オブジェクトの距離を比較
@@ -35,7 +45,7 @@ public class MainCamera : MonoBehaviour
         float minDis = 9999f;
         foreach(GameObject area in areas)
         {
-            float dis = Vector3.Distance(player.transform.position, area.transform.position);
+            float dis = Vector3.Distance(Player.transform.position, area.transform.position);
             if(minDis > dis)
             {
                 minDis = dis;
@@ -105,6 +115,8 @@ public class MainCamera : MonoBehaviour
 
                 break;
         }
+
+        dof.focusDistance.value = Vector3.Distance(transform.position, Player.transform.position) + FocusDistanceMargin;
     }
 
 
