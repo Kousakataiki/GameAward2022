@@ -94,6 +94,7 @@ public class Goal : MonoBehaviour
             AudioManager.instance.BGMStop("BGM_W2");
             AudioManager.instance.BGMStop("BGM_W3");
             AudioManager.instance.BGMStop("BGM_W4");
+            AudioManager.instance.BGMStop("SE_Lever");
             Destroy(Player.GetComponent<PlayerMove>());
             PlayerRB.velocity = new Vector3(0, 0, 0);
             StartRot = Player.transform.rotation;

@@ -25,12 +25,14 @@ public class Door : MonoBehaviour
     {
         anim.SetFloat("Speed", AnimSpeed);
         anim.SetTrigger("Open");
+        AudioManager.instance.Play("SE_DoorOpen");
     }
 
     public void Close()
     {
         anim.SetFloat("Speed", AnimSpeed);
         anim.SetTrigger("Close");
+        AudioManager.instance.Play("SE_DoorClose");
     }
 
     public void EndOpen()

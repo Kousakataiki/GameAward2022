@@ -73,9 +73,17 @@ public class AudioManager : MonoBehaviour
         s.audioSource.Play();
     }
 
+    public void BGMFadeStarter(string bgmName)
+    {
+        Sound s = System.Array.Find(sounds, sound => sound.name == bgmName);
+        StartCoroutine(BGMFadeStop(s));
+    }
+
     IEnumerator BGMFadeStart(Sound s)
     {
-        while(true)
+        s.audioSource.Play();
+        s.audioSource.loop = true;
+        while (true)
         {
             s.audioSource.volume += 0.01f;
             yield return BGMFadeTime;
@@ -85,6 +93,12 @@ public class AudioManager : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void BGMFadeStoper(string bgmName)
+    {
+        Sound s = System.Array.Find(sounds, sound => sound.name == bgmName);
+        StartCoroutine(BGMFadeStop(s));
     }
 
     public void BGMStop(string name)

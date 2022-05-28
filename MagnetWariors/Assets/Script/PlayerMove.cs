@@ -131,7 +131,7 @@ public class PlayerMove : MonoBehaviour
                 if (bJump)
                 {
                     bJump = false;
-                    AudioManager.instance.Play("PlayerJump");
+                    AudioManager.instance.Play("SE_PlayerJump");
                     anim.SetTrigger("Jump");
                     rb.velocity = new Vector3(rb.velocity.x, jumpPower, rb.velocity.z);
                 }
@@ -207,7 +207,7 @@ public class PlayerMove : MonoBehaviour
         {
             if(velo.magnitude >= 7.5f && !bJump)
             {
-                AudioManager.instance.Play("PlayerLanding");
+                AudioManager.instance.Play("SE_BlockCollision");
             }
 
             Vector3 colPos = collision.gameObject.transform.position;

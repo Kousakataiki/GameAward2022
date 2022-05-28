@@ -24,6 +24,7 @@ public class ReStart : MonoBehaviour
         {
             // ーーーーー プレイヤーの死亡フラグを有効化する ーーーーー
             coll.attachedRigidbody.GetComponent<PlayerMove>().bDeath = true;
+            AudioManager.instance.Play("SE_PlayerFall");
         }
     }
 }
