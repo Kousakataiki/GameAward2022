@@ -193,6 +193,8 @@ public class StageSerect : MonoBehaviour
                 // ドアに入ったらシーン遷移
                 if (AnimCnt >= 1.0f)
                 {
+
+                    AudioManager.instance.BGMStop("BGM_StageSerect");
                     AudioManager.instance.BGMStop("PlayerWalk");
                     fade.fadeOutStart(0, 0, 0, 0, StageFileName[(int)stagenum]);
                     anim.SetFloat("Speed", DoorAnimSpeed);
