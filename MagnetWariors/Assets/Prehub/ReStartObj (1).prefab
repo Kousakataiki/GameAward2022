@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 417967472923917732}
   - component: {fileID: 6838859924098723260}
   - component: {fileID: 2231767183208704779}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ReStartObj (1)
   m_TagString: ReStartObj
   m_Icon: {fileID: 0}
