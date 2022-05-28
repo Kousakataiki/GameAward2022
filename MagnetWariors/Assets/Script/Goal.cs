@@ -90,6 +90,10 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            AudioManager.instance.BGMStop("BGM_W1");
+            AudioManager.instance.BGMStop("BGM_W2");
+            AudioManager.instance.BGMStop("BGM_W3");
+            AudioManager.instance.BGMStop("BGM_W4");
             Destroy(Player.GetComponent<PlayerMove>());
             PlayerRB.velocity = new Vector3(0, 0, 0);
             StartRot = Player.transform.rotation;
