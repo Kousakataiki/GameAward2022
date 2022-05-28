@@ -39,13 +39,15 @@ public class SmokeUIManager : MonoBehaviour
     {
         //クリア数取得
         int LiberationMapState  = SaveData.GetClearState();
-        LiberationWorldState    = liberationMapState / 8;
-        LiberationWorldMapState = liberationMapState % 8;
+        Debug.Log("State s" + LiberationMapState);
+        LiberationWorldState    = LiberationMapState / 8;
+        LiberationWorldMapState = LiberationMapState % 8;
 
         //表示しないすべて無効
         for (int i = 0; i < LiberationWorldState; ++i)
         {
-            SumokeEffects[i].SetActive(false);
+            if(i != 4)
+                SumokeEffects[i].SetActive(false);
         }
 
         //演出しなくていいとき判定
