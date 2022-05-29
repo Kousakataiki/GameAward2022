@@ -47,12 +47,13 @@ public class ZipLine : MonoBehaviour
         MagnetObj.transform.position = InitPos;
 
         zipMagnet = MagnetObj.transform.Find("MagnetField").gameObject.GetComponent<ZipLineMagnet>();
+
+        AudioManager.instance.BGMStart("SE_ZIPLINE_1");
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
         if (bHori)
         {
             if (moveVec.x > 0)   // ˆÚ“®•ûŒü‚ÌX‚ªƒvƒ‰ƒX
@@ -82,7 +83,7 @@ public class ZipLine : MonoBehaviour
                         bReverse = true;
                         bReverseProcess = true;
                         Invoke("WaitReverse", 2);
-
+                        AudioManager.instance.BGMStop("SE_ZIPLINE_1");
                     }
                 }
             }
@@ -113,6 +114,7 @@ public class ZipLine : MonoBehaviour
                         bReverse = true;
                         bReverseProcess = true;
                         Invoke("WaitReverse", 2);
+                        AudioManager.instance.BGMStop("SE_ZIPLINE_1");
                     }
                 }
             }
@@ -196,5 +198,6 @@ public class ZipLine : MonoBehaviour
     {
         bReverse = false;
         bReverseProcess = false;
+        AudioManager.instance.BGMStart("SE_ZIPLINE_1");
     }
 }

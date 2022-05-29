@@ -124,4 +124,52 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5091e5eda9906564ba449f8fc28717e1, type: 3}
     volume: 0.5
     audioSource: {fileID: 0}
-  FadeTime: 0
+  - name: SE_BlockCollision
+    clip: {fileID: 8300000, guid: 2eb8417851f03c44183f80ab1ca5c897, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_DoorClose
+    clip: {fileID: 8300000, guid: a00d7f9663c40a74f865960d608cd501, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_DoorOpen
+    clip: {fileID: 8300000, guid: 4d9d8ec5922b41245b16c47626ac6c19, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_Gear
+    clip: {fileID: 8300000, guid: 365e456472ca0f44a884d4bee86bb666, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_Lever
+    clip: {fileID: 8300000, guid: 75468ad2c21a9404dbc961152aa762af, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_PlayerFall
+    clip: {fileID: 8300000, guid: f55246bb449203e4995d7ab07026531d, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_PlayerJump
+    clip: {fileID: 8300000, guid: 796521d2fe8101f49a73d33995972ef5, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_PlayerMove
+    clip: {fileID: 8300000, guid: 1a62a47af2695144c80545da74f2f970, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_Thunder
+    clip: {fileID: 8300000, guid: 52135711558206047a8dfd0077713f5d, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_VaporLong
+    clip: {fileID: 8300000, guid: 14a87db3e60d43545a53a7d540e1b720, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_WaterFall
+    clip: {fileID: 8300000, guid: 9d382adab11de79438158ef04d88f3ba, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_ZIPLINE_1
+    clip: {fileID: 8300000, guid: 7b6087e99340df54f98609add0364eca, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  FadeTime: 0.01

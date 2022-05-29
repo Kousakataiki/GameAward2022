@@ -69,6 +69,7 @@ public class TransBlock : MonoBehaviour
                             magnetObjList[i].SetActive(true);
                         }
                     }
+                    AudioManager.instance.Play("SE_Lever");
                 }
             }
         }

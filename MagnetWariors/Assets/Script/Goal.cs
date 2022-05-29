@@ -8,8 +8,6 @@ public class Goal : MonoBehaviour
 {
     [SerializeField] string LoadSceneName = "World_1";
 
-    [SerializeField] int SceneNum;
- 
     [SerializeField] float LeverAnimSpeed;
     [SerializeField] float CameraDistance;
     [SerializeField] float WaitTime;
@@ -92,11 +90,11 @@ public class Goal : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SaveData.UpdateClearState(SceneNum);
             AudioManager.instance.BGMStop("BGM_W1");
             AudioManager.instance.BGMStop("BGM_W2");
             AudioManager.instance.BGMStop("BGM_W3");
             AudioManager.instance.BGMStop("BGM_W4");
+            AudioManager.instance.BGMStop("SE_Lever");
             Destroy(Player.GetComponent<PlayerMove>());
             PlayerRB.velocity = new Vector3(0, 0, 0);
             StartRot = Player.transform.rotation;

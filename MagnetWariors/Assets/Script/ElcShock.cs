@@ -26,6 +26,7 @@ public class ElcShock : MonoBehaviour
             // アニメーション再生中は判定を行わない
             if(!coll.GetComponent<PlayerMove>().bSpark)
             {
+                AudioManager.instance.Play("SE_Thunder");
                 // アニメーション実行中フラグ有効化
                 coll.GetComponent<PlayerMove>().bSpark = true;
                 // プレイヤーのコンポーネント取得
