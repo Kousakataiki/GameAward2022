@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 5692697372516440442}
   - component: {fileID: 428796956311447335}
   - component: {fileID: 2219451934146754284}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MagnetField_N
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}

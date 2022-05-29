@@ -108,4 +108,20 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ca4b83a7ad4c20940b58bf22e862e5a9, type: 3}
     volume: 0.5
     audioSource: {fileID: 0}
+  - name: BGM_W1
+    clip: {fileID: 8300000, guid: 3730fc647250fea4b96a200d4f0da4e1, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W2
+    clip: {fileID: 8300000, guid: f363629f652116d49a2818ab8077327c, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W3
+    clip: {fileID: 8300000, guid: 5e435a257f448a04394d97bd49e3f9ae, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W4
+    clip: {fileID: 8300000, guid: 5091e5eda9906564ba449f8fc28717e1, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
   FadeTime: 0

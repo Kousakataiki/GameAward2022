@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 592890125886975247}
   - component: {fileID: 592890125886975244}
   - component: {fileID: 592890125886975245}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: MagnetForce (1)
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 7328654346505232417}
   - component: {fileID: 884134503788616917}
   - component: {fileID: 8257268406477886076}
-  m_Layer: 10
+  m_Layer: 3
   m_Name: MagnetForce
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}

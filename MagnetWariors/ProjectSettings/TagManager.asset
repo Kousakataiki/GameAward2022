@@ -3,12 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Field
+  - StartPos
+  - PlayerMagnet
+  - MagnetWall
+  - Area
+  - ReverseWall
+  - UsedGimmick
+  - Box
+  - jumpblock
+  - ReStart
+  - ReStartObj
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Magnet
   - Water
   - UI
   - 
