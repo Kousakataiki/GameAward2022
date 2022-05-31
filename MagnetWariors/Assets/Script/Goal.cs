@@ -6,91 +6,112 @@ using UnityEngine.UI;
 
 public class Goal : MonoBehaviour
 {
+    [SerializeField] string LoadSceneName = "World_1";
 
-    [SerializeField] GameObject panel;
-    [SerializeField] Text text;
-    [SerializeField] GameObject Cam;
-    [SerializeField] GameObject Player;
+    [SerializeField] float LeverAnimSpeed;
+    [SerializeField] float CameraDistance;
+    [SerializeField] float WaitTime;
 
-    private Animator anim;
-    Rigidbody rb;
+    [SerializeField] Quaternion TargetRot;  // ‰ñ“]Šp“x
+    [SerializeField] float RotateSpeed;     // ‰ñ“]‘¬“x
+    Quaternion StartRot;    // ŠJŽnŠp“x
 
-    private bool Hit;
-    private float TimeCount;
-    private int rotate;
-    private bool finish;
+    [SerializeField] GameObject ClearEffect;
 
-    public float Cam_x;
-    public float Cam_y;
-    public float Cam_z;
+    GameObject Player;
+    MainCamera mainCamera;
+    Animator anim;
+    Animator PlayerAnim;
+    Rigidbody PlayerRB;
 
+    
+    [SerializeField] bool isLeverAnimEnd;
+    [SerializeField] bool isRotating;
+    [SerializeField] bool Finish;
+    float RotateCnt;
+    float Timer;
+    
 
-    // Start is called before the first frame update
+    [SerializeField] float jumpPower = 5.0f;
+
     void Start()
     {
-        Hit = false;
-        TimeCount = 0;
-        rotate = 90;
-        finish = false;
+        Player = GameObject.FindWithTag("Player");
+        mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<MainCamera>();
+        anim = GetComponent<Animator>();
+        PlayerAnim = Player.GetComponent<Animator>();
+        PlayerRB = Player.GetComponent<Rigidbody>();
 
-        anim = Player.GetComponent<Animator>();
-        rb = Player.GetComponent<Rigidbody>();
+        isLeverAnimEnd = false;
+        Finish = false;
+        RotateCnt = 0f;
+        Timer = 0f;
+
+        jumpPower = VariableManager.playerJumpPower_s;
     }
 
-    // Update is called once per frame
+
     void FixedUpdate()
     {
-
-        if (Hit == true)
+        if (!Finish)
         {
-            Destroy(Player.GetComponent<PlayerMove>());
-            Destroy(GameObject.Find("CameraArea"));
-
-
-
-            if (Cam.transform.position.z <= -10)
+            if (isLeverAnimEnd)
             {
-                Cam.transform.Translate(Cam_x, Cam_y, Cam_z);
-            }
-            if (rotate >= 0)
-            {
-                Player.transform.Rotate(0, 1, 0);
-                rotate--;
-            }
-            else
-            {
-                rb.velocity = new Vector3(rb.velocity.x, 5, rb.velocity.z);
-                anim.SetTrigger("Jump");
-                Hit = false;
-                finish = true;
+                if (isRotating)
+                {
+                    RotateCnt = Mathf.Min(1f, RotateCnt + RotateSpeed * Time.deltaTime);
+                    Player.transform.rotation = Quaternion.Lerp(StartRot, TargetRot, RotateCnt);
 
-
+                    if (RotateCnt >= 1.0f)
+                    {
+                        isRotating = false;
+                    }
+                }
+                else
+                {
+                    PlayerRB.velocity = new Vector3(PlayerRB.velocity.x, jumpPower, PlayerRB.velocity.z);
+                    PlayerAnim.SetTrigger("Jump");
+                    Finish = true;
+                }
             }
-
         }
-
-        if (finish == true)
+        else
         {
-            TimeCount += Time.deltaTime;
+            Timer += Time.deltaTime;
 
-            if (TimeCount > 2.0f)
+            if (Timer >= WaitTime)
             {
-                SceneManager.LoadScene("World_1");
+                SceneManager.LoadScene(LoadSceneName);
             }
-
         }
-
-
-
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Hit = true;
+            AudioManager.instance.BGMStop("BGM_W1");
+            AudioManager.instance.BGMStop("BGM_W2");
+            AudioManager.instance.BGMStop("BGM_W3");
+            AudioManager.instance.BGMStop("BGM_W4");
+            AudioManager.instance.BGMStop("SE_Lever");
+            Destroy(Player.GetComponent<PlayerMove>());
+            PlayerRB.velocity = new Vector3(0, 0, 0);
+            StartRot = Player.transform.rotation;
+            mainCamera.SetCameraMode(MainCamera.CAMERA_MODE.GoalAnim);
+            anim.SetTrigger("Pull");
         }
     }
 
+    public void LeverAnimEnd()
+    {
+        isLeverAnimEnd = true;
+        isRotating = true;
+
+        Vector3 CameraTargetPos = Player.transform.position + new Vector3(0, Player.GetComponent<CapsuleCollider>().height / 2, -CameraDistance);
+        mainCamera.SetTargetPos(CameraTargetPos);
+        mainCamera.PlayGoalAnim();
+
+        Instantiate(ClearEffect, transform.position, Quaternion.Euler(0, 0, 0));
+    }
 }

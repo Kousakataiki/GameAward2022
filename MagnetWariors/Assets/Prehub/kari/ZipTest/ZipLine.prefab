@@ -139,7 +139,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 66b88dd563f99694f96ff531c6fa407c, type: 2}
+  - {fileID: 2100000, guid: edcc74de3447c2a49a57222928cf23a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 9036720820189337704}
   - component: {fileID: 5623381886889716157}
   - component: {fileID: 8883507774363826735}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MagnetField
   m_TagString: MagnetWall
   m_Icon: {fileID: 0}

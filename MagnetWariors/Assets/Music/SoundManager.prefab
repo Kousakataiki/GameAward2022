@@ -64,16 +64,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ebcba0eefb227454181f2abf0fa14148, type: 3}
     volume: 0.1
     audioSource: {fileID: 0}
-  - name: jingle_GameClear_1
-    clip: {fileID: 8300000, guid: 0d762068581037e4cb06257ec9d50427, type: 3}
+  - name: JINGLE_WorldClear
+    clip: {fileID: 8300000, guid: 78fae3e55f1eb1246b74658387900b77, type: 3}
     volume: 0.1
     audioSource: {fileID: 0}
-  - name: jingle_GameClear_2
-    clip: {fileID: 8300000, guid: be064adf717ce494ea009e3465f73f87, type: 3}
-    volume: 0.1
-    audioSource: {fileID: 0}
-  - name: jingle_GameOver
-    clip: {fileID: 8300000, guid: 79fcdf6d9c1247e48bc27e8652509e27, type: 3}
+  - name: JINGLE_StageClear
+    clip: {fileID: 8300000, guid: bcd686fda5fc450418138a7ca406956a, type: 3}
     volume: 0.1
     audioSource: {fileID: 0}
   - name: jingle_GameStart
@@ -96,8 +92,84 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 54a88b51b16c37440a7b24377d20abb3, type: 3}
     volume: 0.1
     audioSource: {fileID: 0}
-  - name: SE_World1_BackGround_vapor
-    clip: {fileID: 8300000, guid: 2e31bb33d16c48145b01403e0c56ae68, type: 3}
+  - name: BGM_Title
+    clip: {fileID: 8300000, guid: f9f59b42b8bbaae4a8a6bc267ef609d2, type: 3}
     volume: 0.1
     audioSource: {fileID: 0}
-  FadeTime: 0
+  - name: BGM_WorldSerect
+    clip: {fileID: 8300000, guid: a9084fe7432fb9e46b7c39ed68374d05, type: 3}
+    volume: 0.1
+    audioSource: {fileID: 0}
+  - name: BGM_StageSerect
+    clip: {fileID: 8300000, guid: a3d3a81dcf0696147a92d4661bc666fd, type: 3}
+    volume: 0.1
+    audioSource: {fileID: 0}
+  - name: SE_ZIPLINE_1
+    clip: {fileID: 8300000, guid: ca4b83a7ad4c20940b58bf22e862e5a9, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W1
+    clip: {fileID: 8300000, guid: 3730fc647250fea4b96a200d4f0da4e1, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W2
+    clip: {fileID: 8300000, guid: f363629f652116d49a2818ab8077327c, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W3
+    clip: {fileID: 8300000, guid: 5e435a257f448a04394d97bd49e3f9ae, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: BGM_W4
+    clip: {fileID: 8300000, guid: 5091e5eda9906564ba449f8fc28717e1, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_BlockCollision
+    clip: {fileID: 8300000, guid: 2eb8417851f03c44183f80ab1ca5c897, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_DoorClose
+    clip: {fileID: 8300000, guid: a00d7f9663c40a74f865960d608cd501, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_DoorOpen
+    clip: {fileID: 8300000, guid: 4d9d8ec5922b41245b16c47626ac6c19, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_Gear
+    clip: {fileID: 8300000, guid: 365e456472ca0f44a884d4bee86bb666, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_Lever
+    clip: {fileID: 8300000, guid: 75468ad2c21a9404dbc961152aa762af, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_PlayerFall
+    clip: {fileID: 8300000, guid: f55246bb449203e4995d7ab07026531d, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_PlayerJump
+    clip: {fileID: 8300000, guid: 796521d2fe8101f49a73d33995972ef5, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_PlayerMove
+    clip: {fileID: 8300000, guid: 1a62a47af2695144c80545da74f2f970, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_Thunder
+    clip: {fileID: 8300000, guid: 52135711558206047a8dfd0077713f5d, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_VaporLong
+    clip: {fileID: 8300000, guid: 14a87db3e60d43545a53a7d540e1b720, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_WaterFall
+    clip: {fileID: 8300000, guid: 9d382adab11de79438158ef04d88f3ba, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  - name: SE_ZIPLINE_1
+    clip: {fileID: 8300000, guid: 7b6087e99340df54f98609add0364eca, type: 3}
+    volume: 0.5
+    audioSource: {fileID: 0}
+  FadeTime: 0.01

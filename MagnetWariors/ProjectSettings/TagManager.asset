@@ -4,21 +4,25 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - UsedGimmick
-  - PlayerMagnet
   - Field
+  - StartPos
+  - PlayerMagnet
   - MagnetWall
-  - Box
-  - ReverseWall
   - Area
+  - ReverseWall
+  - UsedGimmick
+  - Box
+  - jumpblock
+  - ReStart
+  - ReStartObj
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Magnet
   - Water
   - UI
-  - 
+  - B_Button
   - 
   - 
   - 

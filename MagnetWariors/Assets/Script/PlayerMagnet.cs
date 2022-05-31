@@ -26,12 +26,14 @@ public class PlayerMagnet : MagnetType
     private float HealAmount;
 
     private bool bRemove = false;
-    private bool bRemoveProcess = false; 
+    private bool bRemoveProcess = false;
+
+    private PlayerMove _move;
 
     private void Awake()
     {
-        Nbar = GameObject.Find("Nbar").GetComponent<Slider>();
-        Sbar = GameObject.Find("Sbar").GetComponent<Slider>();
+        //Nbar = GameObject.Find("Nbar").GetComponent<Slider>();
+        //Sbar = GameObject.Find("Sbar").GetComponent<Slider>();
     }
 
     // Start is called before the first frame update
@@ -44,6 +46,7 @@ public class PlayerMagnet : MagnetType
         HealAmount = VariableManager.HealMagnetAmount_s;
         MagnetObj = transform.Find("Magnet").gameObject; 
         rb = GetComponent<Rigidbody>();
+        _move = GetComponent<PlayerMove>();
     }
 
     // Update is called once per frame
@@ -75,6 +78,7 @@ public class PlayerMagnet : MagnetType
                 bN = true;
                 pole = POLE.N;
                 AudioManager.instance.Play("PlayerMagnet");
+                _move.bJump = false;
             }
         }
 
@@ -109,6 +113,7 @@ public class PlayerMagnet : MagnetType
                 bS = true;
                 pole = POLE.S;
                 AudioManager.instance.Play("PlayerMagnet");
+                _move.bJump = false;
             }
         }
 
@@ -187,8 +192,8 @@ public class PlayerMagnet : MagnetType
             NTimer = 0.0f;
         }
 
-        Nbar.value = Namount;
-        Sbar.value = Samount;
+        //Nbar.value = Namount;
+        //Sbar.value = Samount;
     }
 
     public void RemoveMagnetWall()

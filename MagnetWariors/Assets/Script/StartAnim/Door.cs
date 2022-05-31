@@ -25,17 +25,21 @@ public class Door : MonoBehaviour
     {
         anim.SetFloat("Speed", AnimSpeed);
         anim.SetTrigger("Open");
+        AudioManager.instance.Play("SE_DoorOpen");
     }
 
     public void Close()
     {
         anim.SetFloat("Speed", AnimSpeed);
         anim.SetTrigger("Close");
+        AudioManager.instance.Play("SE_DoorClose");
     }
 
     public void EndOpen()
     {
-        GameObject.FindWithTag("Player").GetComponent<PlayerStartAnim>().Play();
+        PlayerStartAnim PSA = GameObject.FindWithTag("Player").GetComponent<PlayerStartAnim>();
+        if (PSA != null)
+            PSA.Play();
     }
 
     public void EndClose()
